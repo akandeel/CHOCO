@@ -5,6 +5,13 @@ class ConsumersController < ApplicationController
   end
 
   def create
+    @consumer = Consuemr.new(consumer_params)
+    if @consumer.save
+      alert[:flash] = "Your chocolate path begins..."
+      redirect_to '/pages/home'
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -19,7 +26,19 @@ class ConsumersController < ApplicationController
 private
 
 def consumer_params
-  params.require(:consumer).permit(:first_name)
+  params.require(:consumer).permit(
+
+                                :first_name,
+                                :last_name,
+                                :gender,
+                                :date_of_birth,
+                                :country,
+                                :street_number,
+                                :street_name,
+                                :state,
+                                :suit,
+                                :mailing_address
+                                )
 
 
 
