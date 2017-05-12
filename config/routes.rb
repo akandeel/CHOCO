@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  get 'welcome' => 'pages#home'
-  get 'about_us' => 'pages#about_us'
-  get 'sign_up' => 'pages#sign_up'
-  get 'my_account' => 'pages#my_account'
+  #get 'welcome' => 'pages#home'
+  #get 'about_us' => 'pages#about_us'
+  #get 'sign_up' => 'pages#sign_up'
+  #get 'my_account' => 'pages#my_account'
+  root 'pages#home'
 
-  get '/consumers/:id/edit' => 'consumers#edit' as: :edit_consumer
-  patch '/consumers/:id' => 'consumers#update' as: :update_consumer
-  
+  get 'about', to: 'pages#about_us'
+
+
+  #get '/consumers/:id/edit' => 'consumers#edit' as: :edit_consumer
+  #patch '/consumers/:id' => 'consumers#update' as: :update_consumer
+
   #get '/consumers/:id' => 'consumers#show'
   #get '/consumers/:id' => 'consumers#edit'
 

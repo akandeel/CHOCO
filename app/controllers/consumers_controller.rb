@@ -7,8 +7,8 @@ class ConsumersController < ApplicationController
   def create
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
-      alert[:flash] = "Your chocolate path begins..."
-      redirect_to '/pages/home'
+
+      redirect_to '/root_path/'
     else
       render '/consumers/new'
     end
