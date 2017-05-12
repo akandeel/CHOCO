@@ -8,7 +8,7 @@ class ConsumersController < ApplicationController
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
 
-      redirect_to '/root_path/'
+      redirect_to root_path
     else
       render '/consumers/new'
     end

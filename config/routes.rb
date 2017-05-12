@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #get 'about_us' => 'pages#about_us'
   #get 'sign_up' => 'pages#sign_up'
   #get 'my_account' => 'pages#my_account'
-  root 'pages#home'
+  root :to => 'pages#home'
 
   get 'about', to: 'pages#about_us'
 
