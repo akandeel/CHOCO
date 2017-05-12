@@ -14,7 +14,17 @@ class ConsumersController < ApplicationController
     end
   end
 
+  def edit
+    @consumer = Consumer.find(params[:id])
+  end
+
   def update
+    @consumer = Consumer.find(params[:id])
+    if @consumer.update_attributes(consumer_params)
+        redirect_to(:action=> 'show', :id=> @consumer.id)
+      else
+        render 'edit'
+    end
   end
 
   def show
