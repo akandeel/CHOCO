@@ -1,0 +1,8 @@
+<div class="newForm">
+  <%= form_for (@consumer) do | nf | %>
+
+      <%= nf.text_field :first_name, required: true, placeholder: "First Name" %>
+      <%= nf.submit "save", class: "button" %>
+<% end %>
+
+</div>
