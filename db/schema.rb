@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170510013313) do
     t.string   "state"
     t.string   "suit"
     t.string   "mailing_address"
+    t.string   "password"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
