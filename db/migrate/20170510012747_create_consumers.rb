@@ -11,6 +11,7 @@ class CreateConsumers < ActiveRecord::Migration[5.0]
       t.string :state
       t.string :suit
       t.string :mailing_address
+      t.string :password
 
       t.timestamps
     end
