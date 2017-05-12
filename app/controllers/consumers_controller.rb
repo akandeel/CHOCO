@@ -18,6 +18,8 @@ class ConsumersController < ApplicationController
   end
 
   def show
+    @consumer = Consumer.find(params:[id])
+    # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
   end
 
   def destroy

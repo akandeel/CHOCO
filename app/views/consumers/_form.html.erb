@@ -1,8 +1,50 @@
-<div class="newForm">
+<div class="consumerForm">
   <%= form_for (@consumer) do | nf | %>
-
+    <div class= "firstNameField">
       <%= nf.text_field :first_name, required: true, placeholder: "First Name" %>
-      <%= nf.submit "save", class: "button" %>
-<% end %>
+    </div>
 
+    <div class= "lastNameField">
+      <%= nf.text_field :last_name, required: true, placeholder: "Last Name" %>
+    </div>
+
+    <div class= "date_of_birth">
+      <%= nf.text_field :date_of_birth, required: true, placeholder: "Date of Birth" %>
+    </div>
+
+    <div class= "country">
+      <%= nf.text_field :country, required: true, placeholder: "country" %>
+    </div>
+
+    <div class= "streetNumber">
+      <%= nf.text_field :street_number, required: true, placeholder: "Street Number" %>
+    </div>
+
+    <div class= "street_name">
+      <%= nf.text_field :street_name, required: true, placeholder: "Street Name" %>
+    </div>
+
+    <div class= "state/province">
+      <%= nf.text_field :state, required: true, placeholder: "State or Province" %>
+    </div>
+
+    <div class= "suitHouse">
+      <%= nf.text_field :suit, required: true, placeholder: "Suit or House Number" %>
+    </div>
+
+    <div class= "mailingAddress">
+      <%= nf.text_field :mailing_address, required: true, placeholder: "Mailing Address" %>
+    </div>
+
+    <div class= "password">
+      <%= nf.text_field :password, required: true, placeholder: "Create your password" %>
+    </div>
+
+    <% #  CREATE CONFIRM password WITH VALIDATION %>
+
+
+    <%= nf.submit "save", class: "button" %>
+    </div>
+
+    <% end %>
 </div>
