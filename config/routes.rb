@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'pages#business_dashboard'
   get 'edit_account' => 'pages#business_edit_account'
 
+  post 'businesse' => 'business#create'
+  
   # For details on the DSL avail  able within this file, see http://guides.rubyonrails.org/routing.html
 end
