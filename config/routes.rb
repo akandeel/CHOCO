@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'business_sign_up' => 'pages#business_sign_up'
   get 'dashboard' => 'pages#business_dashboard'
+  get 'edit_account' => 'pages#business_edit_account'
 
   # For details on the DSL avail  able within this file, see http://guides.rubyonrails.org/routing.html
 end
