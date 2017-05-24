@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :consumers
 
   get 'business_sign_up' => 'pages#business_sign_up'
+  get 'dashboard' => 'pages#business_dashboard'
 
   # For details on the DSL avail  able within this file, see http://guides.rubyonrails.org/routing.html
 end
