@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   # get '/consumers/new'=> 'consumers#new'
   resources :consumers
 
+  get 'business_sign_up' => 'pages#business_sign_up'
+
   # For details on the DSL avail  able within this file, see http://guides.rubyonrails.org/routing.html
 end
