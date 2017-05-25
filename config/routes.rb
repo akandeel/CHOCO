@@ -17,11 +17,14 @@ Rails.application.routes.draw do
   # get '/consumers/new'=> 'consumers#new'
   resources :consumers
 
-  get 'business_sign_up' => 'pages#business_sign_up'
-  get 'dashboard' => 'pages#business_dashboard'
-  get 'edit_account' => 'pages#business_edit_account'
+  #get '/business_sign_up' => 'businesse#business_sign_up'
+  #get '/dashboard' => 'businesse#business_dashboard'
 
-  post 'businesse' => 'business#create'
-  
-  # For details on the DSL avail  able within this file, see http://guides.rubyonrails.org/routing.html
+  #get '/businesses/:id/edit' => 'businesses#edit'
+  #patch '/businesses/:id' => 'businesses#update'
+  #post 'businesse' => 'businesse#create'
+  #get '/businesses/:id' => 'businesses#show'
+  #get '/businesses/new' => 'businesses#new'
+  resources :businesses
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
