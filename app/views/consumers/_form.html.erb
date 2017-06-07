@@ -1,50 +1,59 @@
 <div class="consumerForm">
   <%= form_for (@consumer) do | nf | %>
-    <div class= "firstNameField">
-      <%= nf.text_field :first_name, required: true, placeholder: "First Name" %>
-    </div>
 
-    <div class= "lastNameField">
-      <%= nf.text_field :last_name, required: true, placeholder: "Last Name" %>
-    </div>
+    <fieldset>
+      <legend>Sign up to get your yummy chocolate!</legend>
 
-    <div class= "date_of_birth">
-      <%= nf.text_field :date_of_birth, required: true, placeholder: "Date of Birth" %>
-    </div>
+      <div class="field" id="firstName">
 
-    <div class= "country">
-      <%= nf.text_field :country, required: true, placeholder: "country" %>
-    </div>
+        <%= nf.text_field :first_name, required: true, placeholder: "First Name" %>
+      </div>
 
-    <div class= "streetNumber">
-      <%= nf.text_field :street_number, required: true, placeholder: "Street Number" %>
-    </div>
+      <div class="field" id="lastNameField">
+        <%= nf.text_field :last_name, required: true, placeholder: "Last Name" %>
+      </div>
 
-    <div class= "street_name">
-      <%= nf.text_field :street_name, required: true, placeholder: "Street Name" %>
-    </div>
+      <div class="field" id="date_of_birth">
+        <%= nf.text_field :date_of_birth, required: true, placeholder: "Date of Birth" %>
+      </div>
 
-    <div class= "state/province">
-      <%= nf.text_field :state, required: true, placeholder: "State or Province" %>
-    </div>
+      <div class="field" id="country">
+        <%= nf.text_field :country, required: true, placeholder: "country" %>
+      </div>
 
-    <div class= "suitHouse">
-      <%= nf.text_field :suit, required: true, placeholder: "Suit or House Number" %>
-    </div>
+      <div class="field" id="streetNumber">
+        <%= nf.text_field :street_number, required: true, placeholder: "Street Number" %>
+      </div>
 
-    <div class= "mailingAddress">
-      <%= nf.text_field :mailing_address, required: true, placeholder: "Mailing Address" %>
-    </div>
+      <div class="field" id="street_name">
+        <%= nf.text_field :street_name, required: true, placeholder: "Street Name" %>
+      </div>
 
-    <div class= "password">
-      <%= nf.text_field :password, required: true, placeholder: "Create your password" %>
-    </div>
+      <div class="field" id="state/province">
+        <%= nf.text_field :state, required: true, placeholder: "State or Province" %>
+      </div>
 
-    <% #  CREATE CONFIRM password WITH VALIDATION %>
+      <div class="field" id="suitHouse">
+        <%= nf.text_field :suit, required: true, placeholder: "Suit or House Number" %>
+      </div>
 
+      <div class="field" id="mailingAddress">
+        <%= nf.text_field :mailing_address, required: true, placeholder: "Mailing Address" %>
+      </div>
 
-    <%= nf.submit "save", class: "button" %>
-    </div>
+      <div class="field" id="password">
+        <%= nf.text_field :password, required: true, placeholder: "Create your password" %>
+      </div>
 
-    <% end %>
-</div>
+      <div class="field">
+        <%= nf.text_field :password_confirmation, required: true, placeholder: "confirm password password" %>
+     </div>
+      <% #  CREATE CONFIRM password WITH VALIDATION %>
+
+      <div class="field" id="submitButton">
+        <%= nf.submit "save", class: "button" %>
+      </div>
+
+      <% end %>
+    </fieldset>
+  </div>
