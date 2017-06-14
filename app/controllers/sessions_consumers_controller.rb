@@ -16,6 +16,8 @@ class SessionsConsumersController < ApplicationController
 
   def destroy
     session[:consumer_id] = nil
+    #clear out session with the next line if you choose.
+    #reset_session
     redirect_to root_path, notice: "logged out"
   end
 
