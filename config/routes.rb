@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about_us'
 
+  get 'login' => 'sessions_consumers#new'
+  #resources :sessions_consumers
+
 
   #get '/consumers/:id/edit' => 'consumers#edit' as: :edit_consumer
   #patch '/consumers/:id' => 'consumers#update' as: :update_consumer
