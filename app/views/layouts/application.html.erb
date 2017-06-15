@@ -6,9 +6,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tag %>
   </head>
 
   <body>
+    <div class="login" id="container">
+      <div class="consumer_header">
+        <% if current_consumer %>
+          Welcome <%= current_consumer.email %>
+          <%= link_to "logout", session_path("current"), method: "delete" %> #remove method "delete after creating resources routes"
+        <%else %>
+          <%= link_to "Sign Up", new_consumer_path %>
+          |
+          <%= link_to "Log In", new_session_path %>
+        <% end %>
+      </div>
+    </div>
+    
     <%= yield %>
   </body>
 </html>
