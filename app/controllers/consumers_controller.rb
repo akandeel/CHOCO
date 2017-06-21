@@ -1,6 +1,5 @@
 class ConsumersController < ApplicationController
 
-  before_filter :authorize, only: [:edit, :update, :destroy]
   def new
     @consumer = Consumer.new
   end
@@ -9,7 +8,7 @@ class ConsumersController < ApplicationController
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
 
-      redirect_to root_path, notice: "Thanks for signing up! Now enter and taste!"
+      redirect_to root_path, notice: ""
     else
       render '/consumers/new'
     end
