@@ -1,5 +1,6 @@
 class ConsumersController < ApplicationController
 
+  before_filter :authorize, only: [:edit, :update, :destroy]
   def new
     @consumer = Consumer.new
   end
