@@ -8,7 +8,7 @@ class ConsumersController < ApplicationController
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
 
-      redirect_to root_path
+      redirect_to root_path, notice: "Thanks for signing up! Now enter and taste!"
     else
       render '/consumers/new'
     end

@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div class="login" id="container">
+    <div class="Sign_upLogin" id="container">
       <div class="consumer_header">
         <% if current_consumer %>
           Welcome <%= current_consumer.email %>
@@ -20,6 +20,22 @@
           <%= link_to "Log In", new_consumer_path %> <%# for now this is the path %>
         <% end %>
       </div>
+    </div>
+
+<h1>Log in for a taste!</h1> <%#this will be hidden until clicked on log in link MAIN.JS FILE SHOULD DO THIS ACTION %>
+    <div class="HiddenLogin" id="container">
+      <%= form_tag sessions_consumers_path do %>
+        <div class="email_field">
+          <% label_tag :email %><br />
+          <% text_field_tag :email, params[:email] %>
+        </div>
+
+        <div class="password_field" id="container">
+          <%label_tag :password %> <br />
+          <%text_field_tag :password, params[:password] %>
+        </div>
+
+        <div class="loginSubmit"><%= submit_tag "Log In" %></div>
     </div>
 
     <%= yield %>

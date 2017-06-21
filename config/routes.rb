@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   #get 'my_account' => 'pages#my_account'
   root :to => 'pages#home'
 
-  get 'about', to: 'pages#about_us'
+  #get 'about', to: 'pages#about_us'
 
-  get 'login' => 'sessions_consumers#new'
+  #get 'login' => 'sessions_consumers#new'
+
+  resources :pages
   #resources :sessions_consumers
 
 
