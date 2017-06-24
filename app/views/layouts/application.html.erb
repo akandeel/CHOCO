@@ -24,7 +24,7 @@
 
 <h1>Log in for a taste!</h1> <%#this will be hidden until clicked on log in link MAIN.JS FILE SHOULD DO THIS ACTION %>
     <div class="HiddenLogin" id="container">
-      <%= form_tag sessions_consumers_path do %>
+      <%= form_tag ("/sessions_consumers") do %>
         <div class="email_field">
           <% label_tag :email %><br />
           <% text_field_tag :email, params[:email] %>
@@ -36,6 +36,7 @@
         </div>
 
         <div class="loginSubmit"><%= submit_tag "Log In" %></div>
+      <% end %>
     </div>
 
     <%= yield %>
