@@ -35,5 +35,5 @@ Rails.application.routes.draw do
 
   # *****ACCOUNT ACTIVATION ROUTES*****
 
-  resources :account_activations, only [:edit]
+  resources :account_activations #only [:edit]
 end
