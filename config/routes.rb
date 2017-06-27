@@ -32,4 +32,8 @@ Rails.application.routes.draw do
   #get '/businesses/new' => 'businesses#new'
   resources :businesses
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # *****ACCOUNT ACTIVATION ROUTES*****
+
+  resources :account_activations, only [:edit]
 end
