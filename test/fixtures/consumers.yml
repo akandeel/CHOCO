@@ -8,8 +8,8 @@ one:
   country:
   street_number:
   street_name:
-  state/province: 
-  suit/house_number:
+  state: Mystring
+  suit:
   mailing_address: MyString
 
 
@@ -21,6 +21,6 @@ two:
   country:
   street_number:
   street_name:
-  state/province:
-  suit/house_number:
+  state:
+  suit:
   mailing_address: MyString
