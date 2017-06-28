@@ -1,25 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: 
-  last_name: 
-  gender: 
-  date_of_birth: 
-  country: 
-  street_number: 
-  street_name: 
+  first_name: Michael
+  last_name: Exmple
+  gender: male
+  date_of_birth:
+  country:
+  street_number:
+  street_name:
   state/province: 
-  suit/house_number: 
+  suit/house_number:
   mailing_address: MyString
 
+
 two:
-  first_name: 
-  last_name: 
-  gender: 
-  date_of_birth: 
-  country: 
-  street_number: 
-  street_name: 
-  state/province: 
-  suit/house_number: 
+  first_name:
+  last_name:
+  gender:
+  date_of_birth:
+  country:
+  street_number:
+  street_name:
+  state/province:
+  suit/house_number:
   mailing_address: MyString

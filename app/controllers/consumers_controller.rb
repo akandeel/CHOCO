@@ -18,7 +18,21 @@ class ConsumersController < ApplicationController
    BCrypt::Password.create(string, cost: cost)
  end
 
+ # Returns a random token.
+ def Consumer.new_token
+   SecureRandom.urlsafe_base64
+ end
 
+ # Remembers a consumer in the database for use in persistent sessions.
+ def remember
+   self.remember_token = Consumer.new_token
+   update_attribute(:remember_digest, Consumer.digest(remember_token))
+ end
+
+ # Returns true if the given token matches the digest.
+ def authenticated?(remember_token)
+   BCrypt::Password.new(remember_digest).is_password?(remember_token)
+ end
 
   def new
     @consumer = Consumer.new
