@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  include SessionsHelpers
+
 
 private
   #once consumer is logged in he/she should be
