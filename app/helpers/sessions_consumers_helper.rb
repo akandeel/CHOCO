@@ -13,7 +13,7 @@ module SessionsConsumersHelper
   end
 
   # Returns the current logged-in user (if any).
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+  def current_consumer
+    @current_consumer ||= User.find_by(id: session[:consumer_id])
   end
 end
