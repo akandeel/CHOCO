@@ -4,7 +4,7 @@ class SessionsConsumersController < ApplicationController
   end
 
   def create
-    #consumer = Consumer.find_by_email(params[:email])
+    #consumer = Consumer.find_by(email: params[:session][:email].downcase)
       if consumer && consumer.authenticate(params[:password])
         session[:consumer_id] = consumer.id
         redirect_to root_path, notice: "logged in"
