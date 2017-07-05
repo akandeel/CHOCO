@@ -56,17 +56,20 @@ has_secure_password
    SecureRandom.urlsafe_base64
  end
 
+
+ #we can create a valid token and associated digest
+ #by first making a new remember token using Consumer.new_token,
+ #and then updating the remember digest with the result of
+ #applying Consumer.digest. This procedure gives
+ #the remember method
+
+
  # Remembers a user in the database for use in persistent sessions.
  def remember
-   self.remember_token = Consumer.new_token #Using self ensures that assignment sets the user’s remember_token attribute
+   self.remember_token = Consumer.new_token #Using self ensures that assignment sets the user’s remember_token attribute and doesn't create a local variable.
    update_attribute(:remember_digest, Consumer.digest(remember_token))
  end
  # update_attribute bypasses the validations, which is necessary in this case because we don’t have access to the user’s password or confirmation.)
 
- #we can create a valid token and associated digest
- #by first making a new remember token using User.new_token,
- #and then updating the remember digest with the result of
- #applying User.digest. This procedure gives
- #the remember method
 
 end
