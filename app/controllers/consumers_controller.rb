@@ -34,6 +34,11 @@ class ConsumersController < ApplicationController
    BCrypt::Password.new(remember_digest).is_password?(remember_token)
  end
 
+ def show
+   @consumer = Consumer.find(params:[id])
+   # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
+ end
+
   def new
     @consumer = Consumer.new
   end
@@ -41,8 +46,9 @@ class ConsumersController < ApplicationController
   def create
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
-
-      redirect_to root_path, notice: ""
+      log_in @consumer
+      flash[:success] = "You are logged in!"
+      redirect_to @consumer, #notice: ""
     else
       render '/consumers/new'
     end
@@ -61,10 +67,6 @@ class ConsumersController < ApplicationController
     end
   end
 
-  def show
-    @consumer = Consumer.find(params:[id])
-    # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
-  end
 
   def destroy
   end

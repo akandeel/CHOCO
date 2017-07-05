@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: Michael
+michael:
+  first_name: michael
   last_name: Exmple
   gender: male
   date_of_birth:
@@ -11,8 +11,7 @@ one:
   state: Mystring
   suit:
   mailing_address: MyString
-  password_digest: <%= Consumer.digest('password') %>
-
+  #password_digest: <%= Consumer.digest('password') %>
 
 
 two:

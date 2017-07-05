@@ -47,6 +47,6 @@ has_secure_password
   #for the user fixture, which we’ll accomplish
   #by defining a digest method of our own.
 
-
+  
 
 end
