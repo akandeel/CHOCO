@@ -35,9 +35,10 @@ module SessionsConsumersHelper
     !current_consumer?
   end
 
+   # Logs out the current user.
   def log_out
     session.delete(:consumer_id)
     @current_consumer = nil
   end
-  
+
 end

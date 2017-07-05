@@ -1,5 +1,7 @@
 class Consumer < ApplicationRecord
 
+  attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
+  before_save { self.email = email.downcase }
   has_many :sales
 
   validates_presence_of :first_name,
@@ -25,6 +27,8 @@ class Consumer < ApplicationRecord
 
 has_secure_password
 
+  def remember
+    self.remember_token
 #don't need to validate :password,
 #presence because has_secure_password
 #already does it.
@@ -47,6 +51,6 @@ has_secure_password
   #for the user fixture, which we’ll accomplish
   #by defining a digest method of our own.
 
-  
+
 
 end
