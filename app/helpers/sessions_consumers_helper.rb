@@ -17,7 +17,7 @@ module SessionsConsumersHelper
   ####that this raises no exception and returns nil if id is invalid.
   def current_consumer
     #if @current_consumer.nil?
-    #   @current_consumer = User.find_by(id: session[:user_id])
+    #   @current_consumer = Consumer.find_by(id: session[:consumer_id])
     #else
     #   @current_consumer
     #end
