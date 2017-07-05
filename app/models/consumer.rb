@@ -27,8 +27,7 @@ class Consumer < ApplicationRecord
 
 has_secure_password
 
-  def remember
-    self.remember_token
+
 #don't need to validate :password,
 #presence because has_secure_password
 #already does it.
@@ -52,5 +51,22 @@ has_secure_password
   #by defining a digest method of our own.
 
 
+  # Returns a random token.
+ def Consumer.new_token
+   SecureRandom.urlsafe_base64
+ end
+
+ # Remembers a user in the database for use in persistent sessions.
+ def remember
+   self.remember_token = Consumer.new_token #Using self ensures that assignment sets the user’s remember_token attribute
+   update_attribute(:remember_digest, Consumer.digest(remember_token))
+ end
+ # update_attribute bypasses the validations, which is necessary in this case because we don’t have access to the user’s password or confirmation.)
+
+ #we can create a valid token and associated digest
+ #by first making a new remember token using User.new_token,
+ #and then updating the remember digest with the result of
+ #applying User.digest. This procedure gives
+ #the remember method
 
 end
