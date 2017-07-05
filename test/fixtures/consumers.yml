@@ -11,6 +11,8 @@ one:
   state: Mystring
   suit:
   mailing_address: MyString
+  password_digest: <%= Consumer.digest('password') %>
+
 
 
 two:
