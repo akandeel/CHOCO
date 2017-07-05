@@ -2,8 +2,11 @@ class Consumer < ApplicationRecord
 
   attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
   before_save { self.email = email.downcase }
+
+ #ASSOCIATIONS
   has_many :sales
 
+ #VALIDATIONS
   validates_presence_of :first_name,
                         :last_name,
                         :gender,
@@ -26,8 +29,6 @@ class Consumer < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
 has_secure_password
-
-
 #don't need to validate :password,
 #presence because has_secure_password
 #already does it.
@@ -35,7 +36,7 @@ has_secure_password
 # Returns the hash digest of the given string.
 # a method to create a password_digest attribute for our custom fixture consumer.
 # *** the password digest is created using bcrypt (via has_secure_password)
-  def Consumer.digest(string)
+  def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
@@ -52,9 +53,16 @@ has_secure_password
 
 
   # Returns a random token.
- def Consumer.new_token
+ def self.new_token
    SecureRandom.urlsafe_base64
  end
+
+ # PERFECT FOR REMEMBER TOKENS
+ #specifically designed to be safe in URLs
+# ***** The urlsafe_base64 method from the SecureRandom module
+#in the Ruby standard library returns a random string of length 22
+# each of the 22 characters has 64 possibilities.
+
 
 
  #we can create a valid token and associated digest
@@ -64,12 +72,43 @@ has_secure_password
  #the remember method
 
 
+
+ # MAKE REMEMBER TOKEN METHOD.
+ # this is a class method.
  # Remembers a user in the database for use in persistent sessions.
  def remember
    self.remember_token = Consumer.new_token #Using self ensures that assignment sets the user’s remember_token attribute and doesn't create a local variable.
    update_attribute(:remember_digest, Consumer.digest(remember_token))
  end
  # update_attribute bypasses the validations, which is necessary in this case because we don’t have access to the user’s password or confirmation.)
+
+
+ #USING BCRYPT CODE
+ # Returns true if the given token matches the digest.
+ def authenticated?(remember_token)
+   BCrypt::Password.new(remember_digest).is_password?(remember_token)
+ end
+
+ #Note that the remember_token argument in the
+ #authenticated? method is not the same
+ #as the accessor in the class.attr_accessor :remember_token;
+ #instead, it is a variable local to the method.
+
+ #Because the argument refers to the remember token,
+ # it is not uncommon to use a method argument that
+ # has the same name.
+
+ #Also note the use of the
+ #remember_digest attribute, which is the
+ #same as self.remember_digest and,
+ #like name and email, is created automatically
+ #by Active Record based on the name of the
+ #corresponding database column (Listing 9.1).
+
+ #WHAT THE $#%&%$*^%$*
+
+
+
 
 
 end
