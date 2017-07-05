@@ -87,16 +87,5 @@ def consumer_params
                                 :suit,
                                 :mailing_address
                                 )
-
-
-
-
-
-
-
-
-
-
-
   end
 end
