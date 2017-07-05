@@ -5,8 +5,10 @@ class SessionsConsumersController < ApplicationController
 
   def create
     #consumer = Consumer.find_by(email: params[:session][:email].downcase)
-      if consumer && consumer.authenticate(params[:password])
+      if consumer && consumer.authenticate(params[:session][:password])
         session[:consumer_id] = consumer.id
+        log_in consumer #helper method used here to log in user upon signup before redirect.
+        remember consumer #helper method used to call consumer.remember generating a rmemeber token and saving its digest to database.
         redirect_to root_path, notice: "logged in"
       else
         flash.now[:alert] "Email or password is invalid"
