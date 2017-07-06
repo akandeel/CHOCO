@@ -88,6 +88,8 @@ has_secure_password
  #USING BCRYPT CODE
  # Returns true if the given token matches the digest.
  def authenticated?(remember_token)
+   return false if remember_digest.nil?
+   # return false if remember_digest.nil? is required to set th digest to nil because BCrypt::Password.new(nil) raises an error, the test suite should be red. that line fixes it.
    BCrypt::Password.new(remember_digest).is_password?(remember_token)
  end
 
@@ -109,7 +111,7 @@ has_secure_password
 
  #WHAT THE $#%&%$*^%$*
 
- 
+
 
  #forget a consumers permanent session.
  def forget
