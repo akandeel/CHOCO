@@ -8,6 +8,7 @@ class SessionsConsumersController < ApplicationController
       if consumer && consumer.authenticate(params[:session][:password])
         session[:consumer_id] = consumer.id
         log_in consumer #helper method used here to log in user upon signup before redirect.
+        params[:session][:remember_me] == '1' ? remember(consumer) : forget(consumer)
         remember consumer #helper method used to call consumer.remember generating a rmemeber token and saving its digest to database.
         redirect_to root_path, notice: "logged in"
       else
