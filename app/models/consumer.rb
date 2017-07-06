@@ -110,7 +110,8 @@ has_secure_password
  #WHAT THE $#%&%$*^%$*
 
 
-
-
+ def forget
+   update_attribute (:remember_digest, nil)
+ end
 
 end
