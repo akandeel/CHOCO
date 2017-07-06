@@ -20,7 +20,7 @@ class SessionsConsumersController < ApplicationController
     #session[:consumer_id] = nil
     #clear out session with the next line if you choose.
     #reset_session
-    log_out #created in sessions_consumers_helper.rb
+    log_out if logged_in? #created in sessions_consumers_helper.rb
     redirect_to root_path, notice: "logged out"
   end
 
