@@ -109,7 +109,9 @@ has_secure_password
 
  #WHAT THE $#%&%$*^%$*
 
+ 
 
+ #forget a consumers permanent session.
  def forget
    update_attribute (:remember_digest, nil)
  end

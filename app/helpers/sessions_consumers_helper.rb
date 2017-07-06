@@ -70,8 +70,9 @@ module SessionsConsumersHelper
 
    # Logs out the current user.
   def log_out
-    session.delete(:consumer_id)
-    @current_consumer = nil
+    forget(current_consumer) #called from consumer.rb. it sets remember_token attribute to nil.
+    session.delete(:consumer_id) #deletes session.
+    @current_consumer = nil # new value of this instance variable.
   end
 
 end
