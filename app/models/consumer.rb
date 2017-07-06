@@ -1,6 +1,8 @@
 class Consumer < ApplicationRecord
 
   attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
+
+#***** FOR FIXTURES *****
   before_save { self.email = email.downcase }
 
  #ASSOCIATIONS

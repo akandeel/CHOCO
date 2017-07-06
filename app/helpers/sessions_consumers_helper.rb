@@ -38,16 +38,30 @@ module SessionsConsumersHelper
     #end
 
     #***** THIS LINE DOES THE SAME *****
-    @current_consumer ||= Consumer.find_by(id: session[:consumer_id])
-  end
+  #  @current_consumer ||= Consumer.find_by(id: session[:consumer_id])
+  #end
   #A user is logged in if there is a current user in the session, i.e.,
   #if current_user is not nil.
   #so we do not get error in rails server.
+
+  #### CURRENT_USER MUST BE ADJUSTED FOR PERSISTENT SESSIONS:
+
+    if (consumer_id = session[:user_id]) #assigns consumer_id to session.
+      @current_user ||= Consumer.find_by(id: consumer_id)
+    elsif (consumer_id = cookies.signed[:consumer_id])
+      consumer = Consumer.find_by(id: consumer_id)
+        if consumer && consumer.authenticated?(cookies[:remember_token])
+          log_in consumer
+          @current_consumer = consumer
+        end
+    end
+  # Returns the consumer corresponding to the remember token cookie.
+
 # ***********************************************
 
 
 
- ##### Returns true if the user is logged in, false otherwise.
+ # Returns true if the consumer is logged in, false otherwise.
   def logged_in?
     !current_consumer?
   end
