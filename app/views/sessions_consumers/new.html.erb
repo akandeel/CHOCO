@@ -1,0 +1,25 @@
+<% provide(:title, "Log in for a taste") %>
+
+<h1> Log in</h1>
+
+<div class="LogContainer">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |c| %>
+
+      <%= c.label :email %>
+      <%= c.email_field :email, class: 'form-control' %>
+
+      <%= c.label :password %>
+      <%= c.password_field :password, class: 'form-control' %>
+
+      <%= c.label :remember_me, class: "checkbox inline" do %>
+        <%= c.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
