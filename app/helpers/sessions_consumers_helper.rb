@@ -75,4 +75,13 @@ module SessionsConsumersHelper
     @current_consumer = nil # new value of this instance variable.
   end
 
+  #Forgets a persistant session.
+  def forget(consumer)
+    consumer.forget
+    cookies.delete(;consumer_id)
+    cookies.delete(:remember_token)
+  end
+
+  
+
 end
