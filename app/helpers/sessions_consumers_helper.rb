@@ -47,6 +47,15 @@ module SessionsConsumersHelper
   #### CURRENT_USER MUST BE ADJUSTED FOR PERSISTENT SESSIONS
   #WHEN LOGGED INTO MORE THAN ONE BROWSER:
 
+ #if we close Chrome, we set session[:user_id] to nil
+ #(because all session variables expire automatically
+ #on browser close), but the user_id cookie will still
+ #be present. This means that the corresponding user
+ # will still be pulled out of the database when
+  #Chrome is re-launched.
+
+  # **** hence why we need the elsif conditional tht ofcuses on the cookies.
+
     if (consumer_id = session[:user_id]) #assigns consumer_id to session.
       @current_consumer ||= Consumer.find_by(id: consumer_id)
     elsif (consumer_id = cookies.signed[:consumer_id])
@@ -56,7 +65,15 @@ module SessionsConsumersHelper
           @current_consumer = consumer
         end
     end
-  # Returns the consumer corresponding to the remember token cookie.
+    # because user isn’t nil, the second expression will
+    #be evaluated, which raises an error. This is because
+    #the user’s remember digest was deleted as part of logging out
+    #in Firefox, so when we access the application in
+    #Chrome we end up calling:
+    #BCrypt::Password.new(remember_digest).is_password?(remember_token)
+
+    # *****with a nil remember digest, thereby raising an exception inside the bcrypt library. To fix this, we want authenticated? to return false instead.
+    # Returns the consumer corresponding to the remember token cookie.
 
 # ***********************************************
 
