@@ -59,6 +59,11 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
   #post method and a valid session hash, but it’s cumbersome
   #to do this every time. To avoid needless repetition,
   #we’ll write a helper method called log_in_as to log in for us.
+
+
+  #To verify the behavior of the “remember me” checkbox, we’ll
+  #write two tests, one each for submitting with and without
+  #the checkbox checked.  
   test "login with remembering" do
    log_in_as(@consumer, remember_me: '1')
    assert_not_empty cookies['remember_token']
