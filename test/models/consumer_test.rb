@@ -7,7 +7,7 @@ class ConsumerTest < ActiveSupport::TestCase
                      password: "foobar", password_confirmation: "foobar")
   end
 
-  test "authenticated? should return false for a consumer with nil digest" do
+  test "authenticated? method. It should return false for a consumer with nil digest" do
     assert_not @consumer.authenticated?('')
   end
 end
