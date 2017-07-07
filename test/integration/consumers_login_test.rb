@@ -53,6 +53,12 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", consumer_path(@consumer), count: 0
   end
 
+  #Because remembering users requires that they be
+  #logged in, our first step is to define a helper
+  #to log users in inside tests. We logged a user in using the
+  #post method and a valid session hash, but it’s cumbersome
+  #to do this every time. To avoid needless repetition,
+  #we’ll write a helper method called log_in_as to log in for us.
   test "login with remembering" do
    log_in_as(@consumer, remember_me: '1')
    assert_not_empty cookies['remember_token']
