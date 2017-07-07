@@ -44,10 +44,11 @@ module SessionsConsumersHelper
   #if current_user is not nil.
   #so we do not get error in rails server.
 
-  #### CURRENT_USER MUST BE ADJUSTED FOR PERSISTENT SESSIONS:
+  #### CURRENT_USER MUST BE ADJUSTED FOR PERSISTENT SESSIONS
+  #WHEN LOGGED INTO MORE THAN ONE BROWSER:
 
     if (consumer_id = session[:user_id]) #assigns consumer_id to session.
-      @current_user ||= Consumer.find_by(id: consumer_id)
+      @current_consumer ||= Consumer.find_by(id: consumer_id)
     elsif (consumer_id = cookies.signed[:consumer_id])
       consumer = Consumer.find_by(id: consumer_id)
         if consumer && consumer.authenticated?(cookies[:remember_token])
@@ -82,6 +83,6 @@ module SessionsConsumersHelper
     cookies.delete(:remember_token)
   end
 
-  
+
 
 end
