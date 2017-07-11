@@ -15,7 +15,7 @@ class ConsumersController < ApplicationController
     if @consumer.save
       log_in @consumer
       flash[:success] = "You are logged in!"
-      redirect_to @consumer, #notice: ""
+      redirect_to @consumer #notice: ""
     else
       render '/consumers/new'
     end

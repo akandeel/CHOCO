@@ -30,7 +30,7 @@ class ActiveSupport::TestCase
   #manipulate session directly, but we
   #can post to the sessions path
   #which leads to the log_in_as
- def log_in_as(user)
+ def log_in_as(consumer)
    session[:user_id] = user.id
  end
 end
@@ -48,8 +48,8 @@ end
  class ActionDispatch::IntegrationTest
 
   # Log in as a particular user.
-  def log_in_as(user, password: 'password', remember_me: '1')
-    post login_path, params: { session: { email: user.email,
+  def log_in_as(consumer, password: 'password', remember_me: '1')
+    post login_path, params: { session: { email: consumer.email,
                                           password: password,
                                           remember_me: remember_me } }
   end

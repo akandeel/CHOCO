@@ -12,7 +12,7 @@ class SessionsConsumersController < ApplicationController
         remember consumer #helper method used to call consumer.remember generating a rmemeber token and saving its digest to database.
         redirect_to root_path, notice: "logged in"
       else
-        flash.now[:alert] "Email or password is invalid"
+        flash.now[:alert] = "Email or password is invalid"
         render new
       end
   end

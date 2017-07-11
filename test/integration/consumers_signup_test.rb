@@ -4,8 +4,9 @@ class ConsumersSignupTest < ActionDispatch::IntegrationTest
    test "valid signup information" do
      get signup_path
      assert_difference 'Consumer.count', 1 do
-    post consumers_path, params: { consumer: { name:  "Example User",
-                                          email: "consumer@example.com",
+    post consumers_path, params: { consumer: { first_name:  "Example",
+                                          last_name: "Consumer",
+                                          email_address: "consumer@example.com",
                                           password:              "password",
                                           password_confirmation: "password" } }
    end

@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  #get 'welcome' => 'pages#home'
-  #get 'about_us' => 'pages#about_us'
-  #get 'sign_up' => 'pages#sign_up'
-  #get 'my_account' => 'pages#my_account'
+  #get '/welcome' to: 'pages#home'
+  #get '/about_us' to: 'pages#about_us'
+  get 'signup' => 'consumers#new'
+  post 'signup' => 'consumers#create'
+  #get '/my_account' to: 'consumers#show'
+  #get '/about_us', to: 'pages#about_us'
+
   root :to => 'pages#home'
 
-  #get 'about', to: 'pages#about_us'
 
-  #get 'login' => 'sessions_consumers#new'
+  get '/login', to: 'sessions_consumers#new'
 
   resources :pages
   #resources :sessions_consumers
