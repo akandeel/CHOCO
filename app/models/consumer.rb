@@ -121,13 +121,13 @@ has_secure_password
 
  #forget a consumers permanent session by adding a forget helper and calling it from the log_out helper
  def forget
-   #update_attribute (:remember_digest, nil)
+   #update_attribute (:remember_digest, nil) this doesn't pass for some reason.
    if remember_digest.nil?
      false
    else
      BCrypt::Password.new(remember_digest).is_password?(remember_token)
    end
-   
+
  end
 
 end
