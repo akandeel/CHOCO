@@ -2,7 +2,7 @@ require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
   test "should get About_us" do
-    get home_About_us_url
+    get about_us_url
     assert_response :success
   end
 
