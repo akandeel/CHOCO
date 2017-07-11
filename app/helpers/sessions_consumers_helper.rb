@@ -65,6 +65,7 @@ module SessionsConsumersHelper
           @current_consumer = consumer
         end
     end
+  end
     # because user isn’t nil, the second expression will
     #be evaluated, which raises an error. This is because
     #the user’s remember digest was deleted as part of logging out
@@ -96,10 +97,8 @@ module SessionsConsumersHelper
   #Forgets a persistant session.
   def forget(consumer)
     consumer.forget
-    cookies.delete(;consumer_id)
+    cookies.delete(:consumer_id)
     cookies.delete(:remember_token)
   end
-
-
 
 end
