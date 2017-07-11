@@ -119,7 +119,7 @@ has_secure_password
 
 
 
- #forget a consumers permanent session.
+ #forget a consumers permanent session by adding a forget helper and calling it from the log_out helper
  def forget
    update_attribute (:remember_digest, nil)
  end

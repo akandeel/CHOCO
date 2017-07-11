@@ -63,10 +63,17 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
 
   #To verify the behavior of the “remember me” checkbox, we’ll
   #write two tests, one each for submitting with and without
-  #the checkbox checked.  
+  #the checkbox checked.
   test "login with remembering" do
    log_in_as(@consumer, remember_me: '1')
    assert_not_empty cookies['remember_token']
+   assert_equal FILL_IN, assigns(:user).FILL_IN
+   # you can access instance variables defined in
+   # the controller by using assigns.
+   # Right now, the Sessions controller create action
+   # defines a normal (non-instance) variable called
+   # user, but if we change it to an instance variable we can
+   # test that cookies correctly contains the user’s remember token.
   end
 
   test "login without remembering" do
