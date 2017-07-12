@@ -30,6 +30,8 @@ class Consumer < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
+  validates :password, length: { minimum: 6 } #bcrypt does this implicitly but we just need to put a password length.
+
 has_secure_password
 #don't need to validate :password,
 #presence because has_secure_password
