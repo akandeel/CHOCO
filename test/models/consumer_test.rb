@@ -1,5 +1,5 @@
 require 'test_helper'
-
+Example
 class ConsumerTest < ActiveSupport::TestCase
 
   def setup
@@ -25,3 +25,4 @@ class ConsumerTest < ActiveSupport::TestCase
     assert_not @consumer.authenticated?('')
   end
 end
+Example

@@ -49,7 +49,7 @@ end
 
   # Log in as a particular user.
   def log_in_as(consumer, password: 'password', remember_me: '1')
-    post login_path, params: { session: { email: consumer.email,
+    post login_path, params: { session: { email_address: consumer.email_address,
                                           password: password,
                                           remember_me: remember_me } }
   end

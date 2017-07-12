@@ -4,7 +4,7 @@ class Session < ApplicationRecord
   end
 
   def create
-    consumer = Consumer.find_by(email: params[:session][:email].downcase)
+    consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
      if consumer && consumer.authenticate(params[:session][:password])
        log_in consumer
        remember consumer #this is the remember helper

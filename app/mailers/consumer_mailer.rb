@@ -9,7 +9,7 @@ class ConsumerMailer < ApplicationMailer
     @consumer = consumer
     @greeting = "Hi"
 
-    mail to: consumer.email, subject:"WELCOME TO CHOCOLALA!"
+    mail to: consumer.email_address, subject:"WELCOME TO CHOCOLALA!"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -20,6 +20,6 @@ class ConsumerMailer < ApplicationMailer
   def password_reset
     @greeting = "Hi"
 
-    mail to: consumer.email
+    mail to: consumer.email_address
   end
 end

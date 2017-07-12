@@ -13,7 +13,7 @@
     <div class="Sign_upLogin" id="container">
       <div class="consumer_header">
         <% if current_consumer %>
-          Welcome <%= current_consumer.email %>
+          Welcome <%= current_consumer.email_address %>
           <%= link_to "logout", session_path("current"), method: "delete" %> <%# remove method "delete after creating resources routes" %>
         <%else %>
           <%= link_to "Sign Up", new_consumer_path %> <%# for now this is the path %>

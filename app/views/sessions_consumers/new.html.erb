@@ -6,8 +6,8 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |c| %>
 
-      <%= c.label :email %>
-      <%= c.email_field :email, class: 'form-control' %>
+      <%= c.label :email_ %>
+      <%= c.email_field :email_address, class: 'form-control' %>
 
       <%= c.label :password %>
       <%= c.password_field :password, class: 'form-control' %>

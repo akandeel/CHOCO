@@ -21,7 +21,7 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information" do
     get login_path
-    post login_path, params: { session: { email:    @consumer.email,
+    post login_path, params: { session: { email_address:    @consumer.email_address,
                                           password: 'password' } }
     assert_redirected_to @consumer #to check the right redirect target
     follow_redirect! #to actually visit the target page.
@@ -33,7 +33,7 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information followed by logout" do
     get login_path
-    post login_path, params: { session: { email:    @consumer.email,
+    post login_path, params: { session: { email_address:    @consumer.email_address,
                                           password: 'password' } }
     assert is_logged_in? # also tests that this happens immediately after posting valid information to sessions path.
     assert_redirected_to @consumer

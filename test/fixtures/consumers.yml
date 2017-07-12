@@ -2,16 +2,17 @@
 
 michael:
   first_name: michael
-  last_name: Exmple
+  last_name: exmple
   gender: male
-  date_of_birth:
-  country:
-  street_number:
-  street_name:
+  date_of_birth: test_date
+  country: Canada
+  street_number: "41"
+  street_name: Hollywood Blvd.
   state: Mystring
-  suit:
+  suit: "20"
   mailing_address: MyString
-  #password_digest: <%= Consumer.digest('password') %>
+  email_address: m.example@example.com
+  password_digest: <%= Consumer.digest('password') %>
 
 
 two:

@@ -4,7 +4,7 @@ class SessionsConsumersController < ApplicationController
   end
 
   def create
-      consumer = Consumer.find_by(email: params[:session][:email].downcase)
+      consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
       if consumer && consumer.authenticate(params[:session][:password])
         session[:consumer_id] = consumer.id
         log_in consumer #helper method used here to log in user upon signup before redirect.
