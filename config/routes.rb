@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 
   get '/login', to: 'sessions_consumers#new'
+  post 'login' => 'sessions_consumers#create'
 
   resources :pages
   #resources :sessions_consumers

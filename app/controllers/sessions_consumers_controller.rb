@@ -3,6 +3,9 @@ class SessionsConsumersController < ApplicationController
   def new
   end
 
+  def show
+  end
+
   def create
       consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
       if consumer && consumer.authenticate(params[:session][:password])

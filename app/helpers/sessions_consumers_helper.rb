@@ -9,7 +9,7 @@ module SessionsConsumersHelper
 
     # Logs in the given consumer.
   def log_in(consumer)
-    session[:consumer.id] = consumer.id #session[:] is provided from rails.
+    session[:consumer_id] = consumer.id #session[:] is provided from rails.
   end
 # ***********************************************
 

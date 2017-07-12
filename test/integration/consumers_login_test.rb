@@ -10,7 +10,7 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
   # ***** ENSURE THAT FLASH MESSAGE DISAPPEARS ON NEW PAGE *****
   test "login with invalid information" do
     get login_path
-    post login_path, params: { session: {email_address: "", password: ""}}
+    post login_path, params: { sessions_consumers: {email_address: "", password: ""}}
 
     assert_template 'sessions/new'
     assert_template 'sessions/new'
