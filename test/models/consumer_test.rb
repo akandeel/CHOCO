@@ -1,5 +1,5 @@
 require 'test_helper'
-Example
+
 class ConsumerTest < ActiveSupport::TestCase
 
   def setup
@@ -7,7 +7,7 @@ class ConsumerTest < ActiveSupport::TestCase
                              last_name: "Lover",
                              email_address: "choco@example.com",
                              password: "foobar",
-                             assword_confirmation: "foobar")
+                             password_confirmation: "foobar")
   end
 
   test "password should be present (nonblank)" do
@@ -25,4 +25,3 @@ class ConsumerTest < ActiveSupport::TestCase
     assert_not @consumer.authenticated?('')
   end
 end
-Example
