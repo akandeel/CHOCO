@@ -16,8 +16,8 @@
           Welcome <%= current_consumer.email_address %>
           <%= link_to "logout", session_path("current"), method: "delete" %> <%# remove method "delete after creating resources routes" %>
         <%else %>
-          <%= link_to "Sign Up", new_consumer_path %> <%# for now this is the path %>
-          <%= link_to "Log In", new_consumer_path %> <%# for now this is the path %>
+          <%= link_to "Sign Up", "consumers/new" %> <%# for now this is the path %>
+          <%= link_to "Log In", "sessions_consumers/new" %> <%# for now this is the path %>
           <%#= link_to "Forgot Password",######### %>
         <% end %>
       </div>

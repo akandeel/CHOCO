@@ -3,6 +3,10 @@ class Session < ApplicationRecord
   def new
   end
 
+  def show
+  end
+  
+
   def create
     if consumer
       consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
@@ -40,7 +44,7 @@ class Session < ApplicationRecord
          end
       end
     end
-      
+
   end
 
    def destroy

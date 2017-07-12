@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   #get '/consumers/:id' => 'consumers#edit'
 
   # get '/consumers/new'=> 'consumers#new'
-  resources :consumers
+  #resources :consumers
 
   #get '/business_sign_up' => 'businesse#business_sign_up'
   #get '/dashboard' => 'businesse#business_dashboard'
