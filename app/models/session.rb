@@ -4,11 +4,12 @@ class Session < ApplicationRecord
   end
 
   def create
-    consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
-     if consumer && consumer.authenticate(params[:session][:password])
-       log_in consumer
-       remember consumer #this is the remember helper
-       redirect_to consumer
+    if consumer
+      consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
+       if consumer && consumer.authenticate(params[:session][:password])
+         log_in consumer
+         remember consumer #this is the remember helper
+         redirect_to consumer
 
        #defers the real work to the Sessions
        #helper, where we define a remember
@@ -20,11 +21,27 @@ class Session < ApplicationRecord
        #The result appears in
        #app/helpers/sessions_consumers_helper.rb
 
-     else
-       flash.now[:danger] = 'Invalid email or password'
-       render 'new'
-     end
-   end
+       else
+         flash.now[:danger] = 'Invalid email or password'
+         render 'new'
+       end
+
+    else
+      if businesse
+        businesse = Businesse.find_by(email_address: params[:session][:email_address].downcase)
+         if businesse && businesse.authenticate(params[:session][:password])
+           log_in businesse
+           remember businesse #this is the remember helper
+           redirect_to businesse
+
+         else
+           flash.now[:danger] = 'Invalid email or password'
+           render 'new'
+         end
+      end
+    end
+      
+  end
 
    def destroy
      log_out
