@@ -78,26 +78,26 @@ has_secure_password
  # MAKE REMEMBER TOKEN METHOD.
  # this is a class method.
  # Remembers a user in the database for use in persistent sessions.
- def remember
-   self.remember_token = Consumer.new_token #Using self ensures that assignment sets the user’s remember_token attribute and doesn't create a local variable.
-   update_attribute(:remember_digest, Consumer.digest(remember_token))
- end
- # update_attribute bypasses the validations, which is necessary in this case because we don’t have access to the user’s password or confirmation.)
+   def remember
+     self.remember_token = Consumer.new_token #Using self ensures that assignment sets the user’s remember_token attribute and doesn't create a local variable.
+     update_attribute(:remember_digest, Consumer.digest(remember_token))
+   end
+   # update_attribute bypasses the validations, which is necessary in this case because we don’t have access to the user’s password or confirmation.)
 
 
- #USING BCRYPT CODE
- # Returns true if the given token matches the digest.
- def authenticated?(remember_token)
-  if remember_digest.nil? # using nil and returning false fixes error in test.
-   false
-  else
-   BCrypt::Password.new(remember_digest).is_password?(remember_token)
-  end
-   # return false if remember_digest.nil? is required to set th digest
-   # to nil because BCrypt::Password.new(nil) raises an error, the test
-   #suite should be red. that line fixes it.
+   #USING BCRYPT CODE
+   # Returns true if the given token matches the digest.
+   def authenticated?(remember_token)
+    if remember_digest.nil? # using nil and returning false fixes error in test.
+     false
+    else
+     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
+     # return false if remember_digest.nil? is required to set th digest
+     # to nil because BCrypt::Password.new(nil) raises an error, the test
+     #suite should be red. that line fixes it.
 
- end
+   end
 
  #Note that the remember_token argument in the
  #authenticated? method is not the same
@@ -120,14 +120,14 @@ has_secure_password
 
 
  #forget a consumers permanent session by adding a forget helper and calling it from the log_out helper
- def forget
-   #update_attribute (:remember_digest, nil) this doesn't pass for some reason.
-   if remember_digest.nil?
-     false
-   else
-     BCrypt::Password.new(remember_digest).is_password?(remember_token)
-   end
-
- end
+   def forget
+    #update_attribute (:remember_digest, nil) #this doesn't pass for some reason.
+   #end
+    if remember_digest.nil?
+      false
+    else
+      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
+  end
 
 end
