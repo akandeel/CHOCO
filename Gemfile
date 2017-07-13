@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'fabrication'
+#gem 'fabrication'
 
 #gem 'capybara' #generates a user
 
