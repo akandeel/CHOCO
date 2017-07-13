@@ -5,7 +5,7 @@ class Session < ApplicationRecord
 
   def show
   end
-  
+
 
   def create
     if consumer
