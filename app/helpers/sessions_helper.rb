@@ -1,4 +1,4 @@
-module SessionsConsumersHelper
+module SessionsHelper
 
   # Logging a user in is simple with
   #the help of the session method defined

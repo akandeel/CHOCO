@@ -10,6 +10,15 @@ class ConsumerTest < ActiveSupport::TestCase
                              password_confirmation: "foobar")
   end
 
+
+  test "email_addresses should be unique" do
+    duplicate_consumer = @consumer.dup
+    duplicate_consumer.email_address = @consumer.email_address.upcase
+    @consumer.save
+    assert_not duplicate_consumer.valid?
+  end
+
+
   test "password should be present (nonblank)" do
     @consumer.password = @consumer.password_confirmation = " " * 6
     assert_not @consumer.valid?

@@ -3,6 +3,11 @@
   <head>
     <title>Choco</title>
     <%= csrf_meta_tags %>
+ <!-- The stylesheet_link_tag and javascript_include_tag elements add CSS stylesheets
+  and JavaScript from the Rails asset pipeline.
+  The data-turbolinks-track attribute supports Rails Turbolinks.
+  The csrf_meta_tags element is a view helper that prevents cross-site request forgeries
+  when users input data in forms. -->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -10,17 +15,7 @@
   </head>
 
   <body>
-    <div class="Sign_upLogin" id="container">
-      <div class="consumer_header">
-        <% if current_consumer %>
-          Welcome <%= current_consumer.email_address %>
-          <%= link_to "logout", session_path("current"), method: "delete" %> <%# remove method "delete after creating resources routes" %>
-        <%else %>
-          <%= link_to "Sign Up", "consumers/new" %> <%# for now this is the path %>
-          <%= link_to "Log In", "sessions_consumers/new" %> <%# for now this is the path %>
-          <%#= link_to "Forgot Password",######### %>
-        <% end %>
-      </div>
-    </div>
+    <%= yield %>
+
 
 </html>

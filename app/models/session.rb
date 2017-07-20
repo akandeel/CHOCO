@@ -23,7 +23,7 @@ class Session < ApplicationRecord
        #to create permanent cookies for the user id
        #and remember token as described above.
        #The result appears in
-       #app/helpers/sessions_consumers_helper.rb
+       #app/helpers/sessions_helper.rb
 
        else
          flash.now[:danger] = 'Invalid email or password'

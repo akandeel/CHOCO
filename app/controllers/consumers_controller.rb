@@ -7,7 +7,7 @@ class ConsumersController < ApplicationController
  end
 
   def new
-    @consumer = Consumer.new
+    #@consumer = Consumer.new
   end
 
   def create
@@ -28,7 +28,7 @@ class ConsumersController < ApplicationController
   def update
     @consumer = Consumer.find(params[:id])
     if @consumer.update_attributes(consumer_params)
-        redirect_to(:action=> 'show', :id=> @consumer.id)
+        redirect_to(:action => 'show', :id=> @consumer.id)
       else
         render 'edit'
     end

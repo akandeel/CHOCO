@@ -28,11 +28,13 @@ class Consumer < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email_address, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+                    uniqueness: { case_sensitive: false },
 
-  validates :password, length: { minimum: 6 } #bcrypt does this implicitly but we just need to put a password length.
 
+
+  #bcrypt does this implicitly but we just need to put a password length.
 has_secure_password
+validates :password, length: { minimum: 6 }
 #don't need to validate :password,
 #presence because has_secure_password
 #already does it.
@@ -40,6 +42,7 @@ has_secure_password
 # Returns the hash digest of the given string.
 # a method to create a password_digest attribute for our custom fixture consumer.
 # *** the password digest is created using bcrypt (via has_secure_password)
+
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -131,5 +134,6 @@ has_secure_password
       BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
   end
+
 
 end

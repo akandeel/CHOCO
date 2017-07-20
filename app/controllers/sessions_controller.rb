@@ -1,11 +1,12 @@
-class SessionsConsumersController < ApplicationController
+class SessionsController < ApplicationController
 
   def new
   end
 
-  def show
-  end
+  #def show
+  #end
 
+ # you make have to change def create because I dont know if i can have one session.rb or if I need 2.
   def create
       consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
       if consumer && consumer.authenticate(params[:session][:password])
@@ -24,7 +25,7 @@ class SessionsConsumersController < ApplicationController
     #session[:consumer_id] = nil
     #clear out session with the next line if you choose.
     #reset_session
-    log_out if logged_in? #created in sessions_consumers_helper.rb
+    log_out if logged_in? #created in sessions_helper.rb
     redirect_to root_path, notice: "logged out"
   end
 

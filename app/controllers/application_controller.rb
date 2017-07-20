@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  include SessionsConsumersHelper # MAKE HELPERS MODULE AVAILABLE TO OTHER CONTROLLERS
+  include SessionsHelper # MAKE HELPERS MODULE AVAILABLE TO OTHER CONTROLLERS
 
 
 
