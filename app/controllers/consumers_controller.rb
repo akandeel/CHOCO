@@ -1,6 +1,7 @@
 class ConsumersController < ApplicationController
 
 
+
   def show
    @consumer = Consumer.find(params:[id])
    # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
@@ -15,7 +16,7 @@ class ConsumersController < ApplicationController
     if @consumer.save
       log_in @consumer
       flash[:success] = "You are logged in!"
-      redirect_to @consumer #notice: ""
+      redirect_to 'show' #notice: ""
     else
       render '/consumers/new'
     end
@@ -41,18 +42,22 @@ class ConsumersController < ApplicationController
 private
 
 def consumer_params
-  params.require(:consumer).permit(
+  params.require(:consumer).permit(:password,
+                                   :password_confirmation,
+                                   :first_name,
+                                   :last_name,
+                                   :gender,
+                                   :date_of_birth,
+                                   :country,
+                                   :street_number,
+                                   :street_name,
+                                   :state,
+                                   :suit,
+                                   :mailing_address,
+                                   :email_address,
+                                   :remember_digest,
+                                   :password_digest
 
-                                :first_name,
-                                :last_name,
-                                :gender,
-                                :date_of_birth,
-                                :country,
-                                :street_number,
-                                :street_name,
-                                :state,
-                                :suit,
-                                :mailing_address
-                                )
+                                   )
   end
 end

@@ -1,12 +1,14 @@
 class Consumer < ApplicationRecord
 
+
+
   attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
 
 #***** FOR FIXTURES *****
   before_save { self.email_address = email_address.downcase }
 
  #ASSOCIATIONS
-  has_many :sales
+  #has_many :sales
 
  #VALIDATIONS
   validates_presence_of :first_name,
@@ -34,7 +36,8 @@ class Consumer < ApplicationRecord
 
   #bcrypt does this implicitly but we just need to put a password length.
 has_secure_password
-validates :password, length: { minimum: 6 }
+
+validates :password, presence: true, length: { minimum: 6 }
 #don't need to validate :password,
 #presence because has_secure_password
 #already does it.
@@ -43,7 +46,7 @@ validates :password, length: { minimum: 6 }
 # a method to create a password_digest attribute for our custom fixture consumer.
 # *** the password digest is created using bcrypt (via has_secure_password)
 
-  def self.digest(string)
+  def Consumer.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
@@ -60,7 +63,7 @@ validates :password, length: { minimum: 6 }
 
 
   # Returns a random token.
- def self.new_token
+ def Consumer.new_token
    SecureRandom.urlsafe_base64
  end
 
