@@ -54,10 +54,7 @@ def consumer_params
                                    :state,
                                    :suit,
                                    :mailing_address,
-                                   :email_address,
-                                   :remember_digest,
-                                   :password_digest
-
+                                   :email_address
                                    )
   end
 end
