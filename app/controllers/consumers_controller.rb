@@ -3,7 +3,7 @@ class ConsumersController < ApplicationController
 
 
   def show
-   @consumer = Consumer.find(params:[id])
+   @consumer = Consumer.find(params[:id])
    # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
  end
 
@@ -12,13 +12,13 @@ class ConsumersController < ApplicationController
   end
 
   def create
-    @consumer = Consumer.new(consumer_params)
+    @consumer = Consumer.create(consumer_params)
     if @consumer.save
       log_in @consumer
       flash[:success] = "You are logged in!"
-      redirect_to 'show' #notice: ""
+      redirect_to 'consumer'
     else
-      render '/consumers/new'
+      render 'consumers/new'
     end
   end
 

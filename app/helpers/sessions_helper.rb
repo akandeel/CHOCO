@@ -55,7 +55,7 @@ module SessionsHelper
   #Chrome is re-launched.
 
   # **** hence why we need the elsif conditional tht ofcuses on the cookies.
-        
+
     if (consumer_id = session[:consumer_id]) #assigns consumer_id to session.
       @current_consumer ||= Consumer.find_by(id: consumer_id)
     elsif (consumer_id = cookies.signed[:consumer_id])

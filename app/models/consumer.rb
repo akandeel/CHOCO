@@ -1,7 +1,6 @@
 class Consumer < ApplicationRecord
 
 
-
   attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
 
 #***** FOR FIXTURES *****
@@ -30,14 +29,14 @@ class Consumer < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email_address, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false },
+                    uniqueness: { case_sensitive: false }
 
 
 
   #bcrypt does this implicitly but we just need to put a password length.
 has_secure_password
 
-validates :password, presence: true, length: { minimum: 6 }
+#validates :password, presence: true, length: { minimum: 6 }
 #don't need to validate :password,
 #presence because has_secure_password
 #already does it.

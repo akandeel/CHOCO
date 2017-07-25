@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #get '/my_account' to: 'consumers#show'
   #get '/about_us', to: 'pages#about_us'
   root :to => 'pages#home'
+  resources :consumers
 
   get '/login', to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
 
   #get '/login', to: 'sessions#new'
   #post '/login', to: 'sessions#create'
-  #resources :consumers
   #resources :pages
   #resources :sessions
 
