@@ -12,7 +12,7 @@ class ConsumersController < ApplicationController
   end
 
   def create
-    @consumer = Consumer.create(consumer_params)
+    @consumer = Consumer.new(consumer_params)
     if @consumer.save
       log_in @consumer
       flash[:success] = "You are logged in!"

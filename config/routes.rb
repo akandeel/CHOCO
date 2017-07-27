@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   post '/signup', to: 'consumers#create'
   #get '/my_account' to: 'consumers#show'
   #get '/about_us', to: 'pages#about_us'
-  root :to => 'pages#home'
+  root :to => 'consumers#new'
   resources :consumers
 
   get '/login', to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  delete '/login',  to: 'sessions#destroy'
+  delete '/logout',  to: 'sessions#destroy' #refactor the login and remember to create a logout custom route
 
   #get '/login', to: 'sessions#new'
   #post '/login', to: 'sessions#create'

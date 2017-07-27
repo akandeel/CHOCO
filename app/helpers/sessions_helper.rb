@@ -17,6 +17,7 @@ module SessionsHelper
 
   #Storing a user’s (encrypted) id and remember token as permanent cookies on the browser.
   # It uses cookies to create permanent cookies for the user id and remember token
+  #remember helper to go along with log_in
   def remember(consumer)
     consumer.remember #remember is called from class. Remember consumer in a persistent session.
     cookies.permanent.signed[:consumer_id] = consumer.id
@@ -81,6 +82,7 @@ module SessionsHelper
 
 
  # Returns true if the consumer is logged in, false otherwise.
+ # refactored.
   def logged_in?
     !current_consumer?
   end

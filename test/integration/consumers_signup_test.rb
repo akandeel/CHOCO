@@ -21,8 +21,8 @@ class ConsumersSignupTest < ActionDispatch::IntegrationTest
 end
 
      follow_redirect!
-     assert_template 'consumers/new'
-     #We’ve also included a call 
+     assert_template 'consumers/show'
+     #We’ve also included a call
      #to assert_template to check
      #that a failed submission re-renders the new action.
      assert is_logged_in? #created test_helper and is a boolean check.

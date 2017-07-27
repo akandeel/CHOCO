@@ -9,7 +9,7 @@ class SessionsConsumersHelperTest < ActionView::TestCase
 
   def setup
     @consumer = consumers(:michael)
-    remember(@consumer)
+    @consumer.remember
   end
 
   #Because the remember method doesn’t set session[:user_id],
