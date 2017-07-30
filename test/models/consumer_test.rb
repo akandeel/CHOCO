@@ -3,11 +3,22 @@ require 'test_helper'
 class ConsumerTest < ActiveSupport::TestCase
 
   def setup
-    @consumer = Consumer.new(first_name: "Chocolate",
-                             last_name: "Lover",
-                             email_address: "choco@example.com",
-                             password: "foobar",
-                             password_confirmation: "foobar")
+    @consumer = Consumer.new(first_name: "michael",
+                             last_name: "example",
+                             gender: "male",
+                             date_of_birth: "test_date",
+                             country: "Canada",
+                             street_number: "41",
+                             street_name: "Hollywood Blvd.",
+                             state: "Mystring",
+                             suit: "20",
+                             mailing_address: "MyString",
+                             email_address: "m.example@example.com",
+                             password: "password",
+                             password_confirmation: "password")
+
+
+
   end
 
 

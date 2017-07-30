@@ -5,7 +5,7 @@
 
 require 'test_helper'
 
-class SessionsConsumersHelperTest < ActionView::TestCase
+class SessionsHelperTest < ActionView::TestCase
 
   def setup
     @consumer = consumers(:michael)

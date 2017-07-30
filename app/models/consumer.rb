@@ -96,11 +96,11 @@ has_secure_password
    # Returns true if the given token matches the digest.
    def authenticated?(remember_token)
      return false if remember_digest.nil?
-    if remember_digest.nil? # using nil and returning false fixes error in test.
-     false
-    else
+    #if remember_digest.nil? # using nil and returning false fixes error in test.
+     #false
+    #else
      BCrypt::Password.new(remember_digest).is_password?(remember_token)
-    end
+    #end
      # return false if remember_digest.nil? is required to set th digest
      # to nil because BCrypt::Password.new(nil) raises an error, the test
      #suite should be red. that line fixes it.

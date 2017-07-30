@@ -2,7 +2,7 @@
 
 michael:
   first_name: "michael"
-  last_name: "exmple"
+  last_name: "example"
   gender: "male"
   date_of_birth: "test_date"
   country: "Canada"
