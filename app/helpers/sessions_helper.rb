@@ -31,7 +31,7 @@ module SessionsHelper
   # Returns the current logged-in user (if any).
   ####check in console with a non existant record
   ####that this raises no exception and returns nil if id is invalid.
-  #def current_consumer
+  def current_consumer
     #if @current_consumer.nil?
     #   @current_consumer = Consumer.find_by(id: session[:consumer_id])
     #else
@@ -56,7 +56,7 @@ module SessionsHelper
   #Chrome is re-launched.
 
   # **** hence why we need the elsif conditional tht ofcuses on the cookies.
-  def current_consumer
+
     if (consumer_id = session[:consumer_id]) #assigns consumer_id to session.
       @current_consumer ||= Consumer.find_by(id: consumer_id)
     elsif (consumer_id = cookies.signed[:consumer_id])

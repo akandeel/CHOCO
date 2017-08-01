@@ -9,7 +9,7 @@ class SessionsHelperTest < ActionView::TestCase
 
   def setup
     @consumer = consumers(:michael)
-    @consumer.remember
+    remember(@consumer) #Because the remember method doesn’t set session[:user_id], this procedure will test the desired “remember” branch.
   end
 
   #Because the remember method doesn’t set session[:user_id],

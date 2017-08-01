@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   end
 
 
+
+
  # you make have to change def create because I dont know if i can have one session.rb or if I need 2.
   def create
       consumer = Consumer.find_by(email_address: params[:session][:email_address].downcase)
