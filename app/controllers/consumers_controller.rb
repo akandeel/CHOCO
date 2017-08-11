@@ -1,16 +1,24 @@
 class ConsumersController < ApplicationController
 
+
+
+  def show
+   @consumer = Consumer.find(params[:id])
+   # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
+ end
+
   def new
-    @consumer = Consumer.new
+    #@consumer = Consumer.new
   end
 
   def create
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
-
-      redirect_to root_path
+      log_in @consumer
+      flash[:success] = "You are logged in!"
+      redirect_to 'consumer'
     else
-      render '/consumers/new'
+      render 'consumers/new'
     end
   end
 
@@ -21,16 +29,12 @@ class ConsumersController < ApplicationController
   def update
     @consumer = Consumer.find(params[:id])
     if @consumer.update_attributes(consumer_params)
-        redirect_to(:action=> 'show', :id=> @consumer.id)
+        redirect_to(:action => 'show', :id=> @consumer.id)
       else
         render 'edit'
     end
   end
 
-  def show
-    @consumer = Consumer.find(params:[id])
-    # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
-  end
 
   def destroy
   end
@@ -38,29 +42,19 @@ class ConsumersController < ApplicationController
 private
 
 def consumer_params
-  params.require(:consumer).permit(
-
-                                :first_name,
-                                :last_name,
-                                :gender,
-                                :date_of_birth,
-                                :country,
-                                :street_number,
-                                :street_name,
-                                :state,
-                                :suit,
-                                :mailing_address
-                                )
-
-
-
-
-
-
-
-
-
-
-
+  params.require(:consumer).permit(:password,
+                                   :password_confirmation,
+                                   :first_name,
+                                   :last_name,
+                                   :gender,
+                                   :date_of_birth,
+                                   :country,
+                                   :street_number,
+                                   :street_name,
+                                   :state,
+                                   :suit,
+                                   :mailing_address,
+                                   :email_address
+                                   )
   end
 end

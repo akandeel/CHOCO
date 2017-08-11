@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Log in for a taste!</h1>
+          <%= form_tag ('/sessions') do %>
+            <div class="email_field">
+              <% label_tag :email_address %><br />
+              <% text_field_tag :email_address, params[:email_address] %>
+            </div>
+
+            <div class="password_field" id="container">
+              <%label_tag :password %> <br />
+              <%text_field_tag :password, params[:password] %>
+            </div>
+
+            <div class="loginSubmit"><%= submit_tag "Log In" %></div>
+          <% end %>
+        </div>
+
+        <%= yield %>
+      </body>
+  </body>
+</html>

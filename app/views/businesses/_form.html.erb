@@ -1,0 +1,61 @@
+<div class="businessesForm">
+
+  <%= form_for (@businesses) do | b | %>
+    <fieldset>
+      <legend>Please Register Your Organization</legend>
+
+        <div class="businessField" id="OrgName">
+          <% b.text_field :business_name, required: true, placeholder: "Organization Name" %>
+        </div>
+
+        <div class="businessField" id="directors_name">
+          <% b.text_field :directors_name, required: true, placeholder: "Directors Name" %>
+        </div>
+
+        <div class="businessField" id="country">
+          <% b.text_field :country, required: true, placeholder: "country" %>
+        </div>
+
+          <div class=AddressFields>
+          <legend>Address</legend>
+          </div>
+
+        <div class="businessField" id="street_number">
+          <% b.text_field :street_number, required: true, placeholder: "street_number" %>
+        </div>
+
+        <div class="businessField" id="street_name">
+          <% b.text_field :street_name, required: true, placeholder: "street_name" %>
+        </div>
+
+        <div class="businessField" id="province">
+          <% b.text_field :province, required: true, placeholder: "province" %>
+        </div>
+
+        <div class="businessField" id="unit_number">
+          <% b.text_field :unit_number, placeholder: "unit_number" %>
+        </div>
+
+        <div class="businessField" id="mailing_address">
+          <% b.text_field :mailing_address, placeholder: "mailing_address" %>
+        </div>
+
+        <div class="businessField" id="email_address">
+          <% b.text_field :email_address, placeholder: "email_address" %>
+        </div>
+
+        <div class="businessField" id="password">
+          <% b.text_field :password, placeholder: "Enter Password" %>
+        </div>
+
+        <div class="businessField" id="password_confirmation">
+          <% b.text_field :password_confirmation, placeholder: "Confirm Password" %>
+        </div>
+
+        <div class="businessField" id="BusinessSubmitButton">
+          <%= b.submit "save", class: "button" %>
+        </div>
+
+  <% end %>
+      </fieldset>
+</div>
