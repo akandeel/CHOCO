@@ -21,7 +21,7 @@ class ConsumersController < ApplicationController
       render 'consumers/new'
     end
   end
-
+  
   def edit
     @consumer = Consumer.find(params[:id])
   end
