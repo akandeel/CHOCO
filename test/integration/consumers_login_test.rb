@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class ConsumersLoginTest < ActionDispatch::IntegrationTest
+class UsersLoginTest < ActionDispatch::IntegrationTest
 
-  # ***** TEST FIXTURE Michael CREATED IN Consumers.yml. *****
+  # ***** TEST FIXTURE Michael CREATED IN Users.yml. *****
   def setup
-    @consumer = consumers(:michael)
+    @user = users(:michael)
   end
 
   # ***** ENSURE THAT FLASH MESSAGE DISAPPEARS ON NEW PAGE *****
@@ -21,37 +21,37 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information" do
     get login_path
-    post login_path, params: { session: { email_address: @consumer.email_address,
+    post login_path, params: { session: { email_address: @user.email_address,
                                                      password: "password" }
                                                    }
 
 
-    assert_redirected_to @consumer #to check the right redirect target
+    assert_redirected_to @user #to check the right redirect target
     follow_redirect! #to actually visit the target page.
-    assert_template 'consumers/show'
+    assert_template 'users/show'
     assert_select "a[href=?]", login_path, count: 0 #we expect there to be zero links matching the given pattern.
     assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", consumer_path(@consumer)
+    assert_select "a[href=?]", user_path(@user)
   end
 
   test "login with valid information followed by logout" do
     get login_path
-    post login_path, params: { session: { email_address:    @consumer.email_address,
+    post login_path, params: { session: { email_address:    @user.email_address,
                                           password: 'password' } }
     assert is_logged_in? # also tests that this happens immediately after posting valid information to sessions path.
-    assert_redirected_to @consumer
+    assert_redirected_to @user
     follow_redirect!
-    assert_template 'consumers/show'
+    assert_template 'users/show'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", consumer_path(@consumer)
-    delete logout_path # Simulate a consumer clicking logout in a second window.
+    assert_select "a[href=?]", users_path(@user)
+    delete logout_path # Simulate a user clicking logout in a second window.
     assert_not is_logged_in?
     assert_redirected_to root_url
     follow_redirect!
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path,      count: 0
-    assert_select "a[href=?]", consumer_path(@consumer), count: 0
+    assert_select "a[href=?]", user_path(@user), count: 0
   end
 
   #Because remembering users requires that they be
@@ -66,7 +66,7 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
   #write two tests, one each for submitting with and without
   #the checkbox checked.
   test "login with remembering" do
-   log_in_as(@consumer, remember_me: '1')
+   log_in_as(@user, remember_me: '1')
    assert_not_empty cookies['remember_token']
    #assert_equal FILL_IN, assigns(:user).FILL_IN
    # you can access instance variables defined in
@@ -79,9 +79,9 @@ class ConsumersLoginTest < ActionDispatch::IntegrationTest
 
   test "login without remembering" do
    # Log in to set the cookie.
-   log_in_as(@consumer, remember_me: '1')
+   log_in_as(@user, remember_me: '1')
    # Log in again and verify that the cookie is deleted.
-   log_in_as(@consumer, remember_me: '0')
+   log_in_as(@user, remember_me: '0')
    assert_empty cookies['remember_token']
  end
 end

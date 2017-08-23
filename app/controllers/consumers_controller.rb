@@ -1,35 +1,35 @@
-class ConsumersController < ApplicationController
+class UsersController < ApplicationController
 
 
 
   def show
-   @consumer = Consumer.find(params[:id])
-   # @sales = @consumer.sales YOU NEED AFTER SALES MODEL IS MADE.
+   @user = User.find(params[:id])
+   # @sales = @user.sales YOU NEED AFTER SALES MODEL IS MADE.
  end
 
   def new
-    #@consumer = Consumer.new
+    #@user = User.new
   end
 
   def create
-    @consumer = Consumer.new(consumer_params)
-    if @consumer.save
-      log_in @consumer
+    @user = User.new(user_params)
+    if @user.save
+      log_in @user
       flash[:success] = "You are logged in!"
-      redirect_to 'consumer'
+      redirect_to 'user'
     else
-      render 'consumers/new'
+      render 'users/new'
     end
   end
-  
+
   def edit
-    @consumer = Consumer.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-    @consumer = Consumer.find(params[:id])
-    if @consumer.update_attributes(consumer_params)
-        redirect_to(:action => 'show', :id=> @consumer.id)
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+        redirect_to(:action => 'show', :id=> @user.id)
       else
         render 'edit'
     end
@@ -41,8 +41,8 @@ class ConsumersController < ApplicationController
 
 private
 
-def consumer_params
-  params.require(:consumer).permit(:password,
+def user_params
+  params.require(:user).permit(:password,
                                    :password_confirmation,
                                    :first_name,
                                    :last_name,

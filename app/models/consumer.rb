@@ -1,4 +1,4 @@
-class Consumer < ApplicationRecord
+class User < ApplicationRecord
 
 
   attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
@@ -42,10 +42,10 @@ has_secure_password
 #already does it.
 
 # Returns the hash digest of the given string.
-# a method to create a password_digest attribute for our custom fixture consumer.
+# a method to create a password_digest attribute for our custom fixture user.
 # *** the password digest is created using bcrypt (via has_secure_password)
 
-  def Consumer.digest(string)
+  def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
@@ -62,7 +62,7 @@ has_secure_password
 
 
   # Returns a random token.
- def Consumer.new_token
+ def User.new_token
    SecureRandom.urlsafe_base64
  end
 
@@ -75,9 +75,9 @@ has_secure_password
 
 
  #we can create a valid token and associated digest
- #by first making a new remember token using Consumer.new_token,
+ #by first making a new remember token using User.new_token,
  #and then updating the remember digest with the result of
- #applying Consumer.digest. This procedure gives
+ #applying User.digest. This procedure gives
  #the remember method
 
 
@@ -86,8 +86,8 @@ has_secure_password
  # this is a class method.
  # Remembers a user in the database for use in persistent sessions.
    def remember
-     self.remember_token = Consumer.new_token #Using self ensures that assignment sets the user’s remember_token attribute and doesn't create a local variable.
-     update_attribute(:remember_digest, Consumer.digest(remember_token))
+     self.remember_token = User.new_token #Using self ensures that assignment sets the user’s remember_token attribute and doesn't create a local variable.
+     update_attribute(:remember_digest, User.digest(remember_token))
    end
    # update_attribute bypasses the validations, which is necessary in this case because we don’t have access to the user’s password or confirmation.)
 
@@ -127,7 +127,7 @@ has_secure_password
 
 
 
- #forget a consumers permanent session by adding a forget helper and calling it from the log_out helper
+ #forget a users permanent session by adding a forget helper and calling it from the log_out helper
    def forget
     #update_attribute (:remember_digest, nil) #this doesn't pass for some reason.
    #end

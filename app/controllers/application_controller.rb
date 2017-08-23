@@ -25,17 +25,17 @@ class ApplicationController < ActionController::Base
 
 
 private
-  #once consumer is logged in he/she should be
+  #once user is logged in he/she should be
   #able to see that indicated in the view to see their log in status.
   #to do that we need:
-  #def current_consumer
-  #  @current_consumer ||= Consumer.find(session[:consumer_id]) if session[:consumer_id]
+  #def current_user
+  #  @current_user ||= User.find(session[:user_id]) if session[:user_id]
   #end
 
-  #access current_consumer in view, not just in model.
-  #helper_method :current_consumer
+  #access current_user in view, not just in model.
+  #helper_method :current_user
 
   def authorize
-    redirect_to login_url, alert: "Please log in before getting delicious chocolate!" if current_consumer.nil?
+    redirect_to login_url, alert: "Please log in before getting delicious chocolate!" if current_user.nil?
   end
 end
