@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   #get '/welcome' to: 'pages#home'
   #get '/about_us' to: 'pages#about_us'
-  get '/signup', to: 'consumers#new'
-  post '/signup', to: 'consumers#create'
-  #get '/my_account' to: 'consumers#show'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+  #get '/my_account' to: 'users#show'
   #get '/about_us', to: 'pages#about_us'
-  root :to => 'consumers#new'
-  resources :consumers
+  root :to => 'users#new'
+  resources :users
 
   get '/login', to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -17,14 +17,14 @@ Rails.application.routes.draw do
   #resources :pages
   #resources :sessions
 
-  #get '/consumers/:id/edit' => 'consumers#edit' as: :edit_consumer
-  #patch '/consumers/:id' => 'consumers#update' as: :update_consumer
+  #get '/users/:id/edit' => 'users#edit' as: :edit_user
+  #patch '/users/:id' => 'users#update' as: :update_user
 
-  #get '/consumers/:id' => 'consumers#show'
-  #get '/consumers/:id' => 'consumers#edit'
+  #get '/users/:id' => 'users#show'
+  #get '/users/:id' => 'users#edit'
 
-  # get '/consumers/new'=> 'consumers#new'
-  # => resources :consumers
+  # get '/users/new'=> 'users#new'
+  # => resources :users
 
   #get '/business_sign_up' => 'businesse#business_sign_up'
   #get '/dashboard' => 'businesse#business_dashboard'

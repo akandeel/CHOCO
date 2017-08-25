@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class ConsumersSignupTest < ActionDispatch::IntegrationTest
+class UsersSignupTest < ActionDispatch::IntegrationTest
    test "valid signup information" do
      get signup_path
      assert_difference 'Consumer.count', 1 do
-    post consumers_path, params: { consumer: { first_name:  "Example",
+    post users_path, params: { consumer: { first_name:  "Example",
                                               last_name: "Consumer",
                                               gender: "male",
                                               date_of_birth: "TestDate",
@@ -21,7 +21,7 @@ class ConsumersSignupTest < ActionDispatch::IntegrationTest
 end
 
      follow_redirect!
-     assert_template 'consumers/show'
+     assert_template 'users/show'
      #We’ve also included a call
      #to assert_template to check
      #that a failed submission re-renders the new action.

@@ -1,2 +1,2 @@
-module ConsumersHelper
+module UsersHelper
 end

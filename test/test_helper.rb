@@ -55,6 +55,6 @@ end
                                           remember_me: remember_me } }
   end
 
-  # IN CONSUMERS_LOGIN_TEST.RB WE WILL USE THIS TO WRITE 2 TESTS FOR THE REMEMBER ME!
+  # IN USERS_LOGIN_TEST.RB WE WILL USE THIS TO WRITE 2 TESTS FOR THE REMEMBER ME!
 
 end
