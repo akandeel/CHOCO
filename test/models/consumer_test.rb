@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class ConsumerTest < ActiveSupport::TestCase
+class UserTest < ActiveSupport::TestCase
 
   def setup
-    @consumer = Consumer.new(first_name: "michael",
+    @user = User.new(first_name: "michael",
                              last_name: "example",
                              gender: "male",
                              date_of_birth: "test_date",
@@ -23,25 +23,25 @@ class ConsumerTest < ActiveSupport::TestCase
 
 
   test "email_addresses should be unique" do
-    duplicate_consumer = @consumer.dup
-    duplicate_consumer.email_address = @consumer.email_address.upcase
-    @consumer.save
-    assert_not duplicate_consumer.valid?
+    duplicate_user = @user.dup
+    duplicate_user.email_address = @user.email_address.upcase
+    @user.save
+    assert_not duplicate_user.valid?
   end
 
 
   test "password should be present (nonblank)" do
-    @consumer.password = @consumer.password_confirmation = " " * 6
-    assert_not @consumer.valid?
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
   end
 
   test "password should have a minimum length" do
-    @consumer.password = @consumer.password_confirmation = "a" * 5
-    assert_not @consumer.valid?
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
   end
 
   #this is easier to test in model rather than integration. which is why its here.
   test "authenticated? method. It should return false for a consumer with nil digest" do
-    assert_not @consumer.authenticated?('')
+    assert_not @user.authenticated?('')
   end
 end

@@ -7,9 +7,9 @@ module SessionsHelper
  # We can treat session as if it were a hash,
  #and assign to it as follows:
 
-    # Logs in the given consumer.
-  def log_in(consumer)
-    session[:consumer_id] = consumer.id #session[:] is provided from rails.
+    # Logs in the given user.
+  def log_in(user)
+    session[:user_id] = user.id #session[:] is provided from rails.
   end
 # ***********************************************
 
@@ -18,10 +18,10 @@ module SessionsHelper
   #Storing a user’s (encrypted) id and remember token as permanent cookies on the browser.
   # It uses cookies to create permanent cookies for the user id and remember token
   #remember helper to go along with log_in
-  def remember(consumer)
-    consumer.remember #remember is called from class. Remember consumer in a persistent session.
-    cookies.permanent.signed[:consumer_id] = consumer.id
-    cookies.permanent[:remember_token] = consumer.remember_token
+  def remember(user)
+    user.remember #remember is called from class. Remember user in a persistent session.
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
   end
   #permanent = rails save for 20 years method.
   #signed = rails encrypting method.
@@ -31,15 +31,15 @@ module SessionsHelper
   # Returns the current logged-in user (if any).
   ####check in console with a non existant record
   ####that this raises no exception and returns nil if id is invalid.
-  def current_consumer
-    #if @current_consumer.nil?
-    #   @current_consumer = Consumer.find_by(id: session[:consumer_id])
+  def current_user
+    #if @current_user.nil?
+    #   @current_user = User.find_by(id: session[:user_id])
     #else
-    #   @current_consumer
+    #   @current_user
     #end
 
     #***** THIS LINE DOES THE SAME *****
-  #  @current_consumer ||= Consumer.find_by(id: session[:consumer_id])
+  #  @current_user ||= User.find_by(id: session[:user_id])
   #end
   #A user is logged in if there is a current user in the session, i.e.,
   #if current_user is not nil.
@@ -57,14 +57,14 @@ module SessionsHelper
 
   # **** hence why we need the elsif conditional tht ofcuses on the cookies.
 
-    if (consumer_id = session[:consumer_id]) #assigns consumer_id to session.
-      @current_consumer ||= Consumer.find_by(id: consumer_id)
-    elsif (consumer_id = cookies.signed[:consumer_id])
+    if (user_id = session[:user_id]) #assigns user_id to session.
+      @current_user ||= User.find_by(id: user_id)
+    elsif (user_id = cookies.signed[:user_id])
       #raise # raise an exception in the suspected untested block of code: if the code isn’t covered, the tests will still pass; if it is covered, the resulting error will identify the relevant test
-      consumer = Consumer.find_by(id: consumer_id)
-        if consumer && consumer.authenticated?(cookies[:remember_token])
-          log_in consumer
-          @current_consumer = consumer
+      user = User.find_by(id: user_id)
+        if user && user.authenticated?(cookies[:remember_token])
+          log_in user
+          @current_user = user
         end
     end
   end
@@ -76,31 +76,31 @@ module SessionsHelper
     #BCrypt::Password.new(remember_digest).is_password?(remember_token)
 
     # *****with a nil remember digest, thereby raising an exception inside the bcrypt library. To fix this, we want authenticated? to return false instead.
-    # Returns the consumer corresponding to the remember token cookie.
+    # Returns the user corresponding to the remember token cookie.
 
 # ***********************************************
 
 
 
- # Returns true if the consumer is logged in, false otherwise.
+ # Returns true if the user is logged in, false otherwise.
  # refactored.
   def logged_in?
-    !current_consumer?
+    !current_user?
   end
 
 
 
    # Logs out the current user.
   def log_out
-    forget(current_consumer) #called from consumer.rb. it sets remember_token attribute to nil.
-    session.delete(:consumer_id) #deletes session.
-    @current_consumer = nil # new value of this instance variable.
+    forget(current_user) #called from user.rb. it sets remember_token attribute to nil.
+    session.delete(:user_id) #deletes session.
+    @current_user = nil # new value of this instance variable.
   end
 
   #Forgets a persistant session.
-  def forget(consumer)
-    consumer.forget
-    cookies.delete(:consumer_id)
+  def forget(user)
+    user.forget
+    cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
 
