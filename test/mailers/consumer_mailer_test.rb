@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ConsumerMailerTest < ActionMailer::TestCase
+class UserMailerTest < ActionMailer::TestCase
   test "account_activation" do
-    mail = ConsumerMailer.account_activation
+    mail = UserMailer.account_activation
     assert_equal "Account activation", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
@@ -10,7 +10,7 @@ class ConsumerMailerTest < ActionMailer::TestCase
   end
 
   test "password_reset" do
-    mail = ConsumerMailer.password_reset
+    mail = UserMailer.password_reset
     assert_equal "Password reset", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from

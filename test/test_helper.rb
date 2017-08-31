@@ -23,7 +23,7 @@ class ActiveSupport::TestCase
 
   # Returns true if a test user is logged in.
   def is_logged_in?
-    !session[:consumer_id].nil?
+    !session[:user_id].nil?
   end
 
   # Log in as a particular user.
@@ -31,7 +31,7 @@ class ActiveSupport::TestCase
   #manipulate session directly, but we
   #can post to the sessions path
   #which leads to the log_in_as
- def log_in_as(consumer)
+ def log_in_as(user)
    session[:user_id] = user.id
  end
 end
@@ -49,8 +49,8 @@ end
  class ActionDispatch::IntegrationTest
 
   # Log in as a particular user.
-  def log_in_as(consumer, password: 'password', remember_me: '1')
-    post login_path, params: { session: { email_address: consumer.email_address,
+  def log_in_as(user, password: 'password', remember_me: '1')
+    post login_path, params: { session: { email_address: user.email_address,
                                           password: password,
                                           remember_me: remember_me } }
   end

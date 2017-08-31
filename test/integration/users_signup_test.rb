@@ -3,9 +3,9 @@ require 'test_helper'
 class UsersSignupTest < ActionDispatch::IntegrationTest
    test "valid signup information" do
      get signup_path
-     assert_difference 'Consumer.count', 1 do
-    post users_path, params: { consumer: { first_name:  "Example",
-                                              last_name: "Consumer",
+     assert_difference 'User.count', 1 do
+    post users_path, params: { user: { first_name:  "Example",
+                                              last_name: "User",
                                               gender: "male",
                                               date_of_birth: "TestDate",
                                               country: "Tokyo",
@@ -14,7 +14,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                               state: "America",
                                               suit: "TestSuit",
                                               mailing_address: "NotRight",
-                                              email_address: "consumer@example.com",
+                                              email_address: "user@example.com",
                                               password:              "password",
                                               password_confirmation: "password" }
                                             }
