@@ -6,7 +6,7 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
-  
+
   attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
 
 #***** FOR FIXTURES *****
