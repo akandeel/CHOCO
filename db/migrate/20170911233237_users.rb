@@ -16,7 +16,7 @@ class Users < ActiveRecord::Migration[5.0]
       t.string :password_confirmation
       t.string :remember_digest
       t.string :password_digest
-      t.integer :role
+      t.string :role
 
         t.timestamps
       end
