@@ -1,6 +1,6 @@
 class Business < ApplicationRecord
 
-  has_many :sales
+  #has_many :sales
 
   validates_presence_of :business_name,
                         :directors_name,
@@ -14,7 +14,7 @@ class Business < ApplicationRecord
 
 
   validates_uniqueness_of :business_name,
-                          :country, 
+                          :country,
                           :street_number,
                           :street_name,
                           :province,

@@ -1,5 +1,7 @@
 class BusinessesControllerController < ApplicationController
 
+  # should use def index to list all the businesses in another page to customers to see.
+  
   def new
     @businesse = @Businesse.new
   end
