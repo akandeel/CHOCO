@@ -1,5 +1,7 @@
 class Business < ApplicationRecord
 
+  belongs_to :users
+
   #has_many :sales
 
   validates_presence_of :business_name,
