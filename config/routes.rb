@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   #get '/consumers/:id' => 'consumers#edit'
 
   # get '/consumers/new'=> 'consumers#new'
-  resources :consumers
+  resources :users
 
   #get '/business_sign_up' => 'businesse#business_sign_up'
   #get '/dashboard' => 'businesse#business_dashboard'
@@ -35,5 +35,5 @@ Rails.application.routes.draw do
 
   # *****ACCOUNT ACTIVATION ROUTES*****
 
-  resources :account_activations, only [:edit]
+  resources :account_activations, only: [:edit]
 end
