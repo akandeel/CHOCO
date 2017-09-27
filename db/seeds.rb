@@ -18,6 +18,7 @@ User.create!(first_name:            "Example",
              email_address:         "example@test-email.ca",
              password:              "foobar",
              password_confirmation: "foobar",
+             role:                  "customer",
              created_at: Time.zone.now,
              activated: true,
              activated_at: Time.zone.now)
@@ -38,6 +39,7 @@ User.create!(first_name:            "Example",
               email_address:          email,
               password:               password,
               password_confirmation:  password,
+              role:                   role,
               activated: true,
               activated_at: Time.zone.now)
 end
