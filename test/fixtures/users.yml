@@ -1,0 +1,62 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Phil:
+     first_name:            Phil
+     last_name:             Fake
+     gender:                male
+     date_of_birth:         BIRTHDAY
+     street_name:           Fake St.
+     street_number:         1
+     state:                 Fake State
+     suit_number:           4
+     mailing_address:       Blue St.
+     email_address:         phil@test-email.ca
+     password:              password
+     password_confirmation: password
+     password_digest:       <%= User.digest('password') %>
+     role:                  customer
+     created_at:            Time.zone.now
+     activated:             true
+     activated_at:          <%= Time.zone.now %>
+
+Niche:
+    first_name:            Niche
+    last_name:             Prairie
+    gender:                male
+    date_of_birth:         BIRTHDAY
+    street_name:           Fake St.
+    street_number:         1
+    state:                 Faux
+    suit_number:           4
+    mailing_address:       chocolateplace
+    email_address:         example@test-email.ca
+    password:              password
+    password_confirmation: password
+    password_digest:       <%= User.digest('password') %>
+    role:                  customer
+    created_at:            Time.zone.now
+    activated:             true
+    activated_at:          <%= Time.zone.now %>
+
+
+<% 30.times do |n| %>
+
+    first_name:            <%= "User #{n}" %>
+    last_name:             <%= "User #{n}" %>
+    gender:                male
+    date_of_birth:         <%= "User #{n}" %>
+    street_name:           <%= "User #{n}" %>
+    street_number:         1
+    state:                 <%= "User #{n}" %>
+    suit_number:           4
+    mailing_address:       <%= "User #{n}" %>
+    email_address:         <%= "user-#{n}@example.com" %>
+    password:              password
+    password_confirmation: password
+    password_digest:       <%= User.digest('password') %>
+    role:                  customer
+    created_at:            <%= Time.zone.now %>
+    activated:             true
+    activated_at:          <%= Time.zone.now %>
+
+<% end %>
