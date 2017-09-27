@@ -4,5 +4,40 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-consumers = Consumer.create([{ first_name: 'Amr'}])
+#   Character.create(name: 'Luke', movie: movies.first
+
+User.create!(first_name:            "Example",
+             last_name:             "Fake",
+             gender:                "male",
+             date_of_birth:         "BIRTHDAY",
+             street_name:           "Fake St.",
+             street_number:         "1",
+             state:                 "Fake State",
+             suit_number:           "4",
+             mailing_address:       "fake-address",
+             email_address:         "example@test-email.ca",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             created_at: Time.zone.now,
+             activated: true,
+             activated_at: Time.zone.now)
+
+
+99.times do | n |
+  name  = Faker::Name.name
+  email = "example-#{n+1}@fakeemail.com"
+  password = "password"
+  User.create!(first_name:            name,
+              last_name:              lastname,
+              gender:                 gender,
+              date_of_birth:          birthday,
+              street_name:            streetname,
+              state:                  state,
+              suit_number:            suitnumber,
+              mailing_address:        mailingaddress
+              email_address:          email,
+              password:               password,
+              password_confirmation:  password,
+              activated: true,
+              activated_at: Time.zone.now)
+end
