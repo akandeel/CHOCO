@@ -7,9 +7,13 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
-  attr_accessor :remember_token # to create an accessible attribute to store cookies without saving to database
+   attr_accessor :remember_token, :activation_token # to create an accessible attribute to store cookies without saving to database
+   before_save   :downcase_email
+   before_create :create_activation_digest #we only want the callback to fire when the user is created.
+#to assign the token and corresponding digest
 
-#***** FOR FIXTURES *****
+
+  #***** FOR FIXTURES *****
   before_save { self.email_address = email_address.downcase }
 
  #ASSOCIATIONS
@@ -144,5 +148,24 @@ has_secure_password
     end
   end
 
+<<<<<<< HEAD
+=======
+  private
+
+  # Converts email to all lower-case.
+    def downcase_email
+      self.email = email.downcase
+    end
+  #Because the create_activation_digest
+  #method itself is only used internally
+  #by the User model, there’s no need to
+  #expose it to outside users
+   def create_activation_digest
+    # Creates and assigns the activation token and digest.
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
+
+  end
+>>>>>>> account_activation
 
 end

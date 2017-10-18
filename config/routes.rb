@@ -23,21 +23,6 @@ Rails.application.routes.draw do
   #get '/users/:id' => 'users#show'
   #get '/users/:id' => 'users#edit'
 
-  # get '/users/new'=> 'users#new'
-  # => resources :users
+  resources :account_activations, only: [:edit]
 
-  #get '/business_sign_up' => 'businesse#business_sign_up'
-  #get '/dashboard' => 'businesse#business_dashboard'
-
-  #get '/businesses/:id/edit' => 'businesses#edit'
-  #patch '/businesses/:id' => 'businesses#update'
-  #post 'businesse' => 'businesse#create'
-  #get '/businesses/:id' => 'businesses#show'
-  #get '/businesses/new' => 'businesses#new'
-  #resources :businesses
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  # *****ACCOUNT ACTIVATION ROUTES*****
-
-  #resources :account_activations #only [:edit]
 end

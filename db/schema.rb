@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170916012025) do
+ActiveRecord::Schema.define(version: 20170615015455) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "business_name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170916012025) do
     t.string   "email_address"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "password",
     t.string   "password_confirmation"
   end
 
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170916012025) do
     t.string   "state"
     t.string   "suit_number"
     t.string   "mailing_address"
-    t.string   "email_address"
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "remember_digest"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20170916012025) do
     t.integer  "role"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "email"
+    t.string   "password_confirmation"
   end
 
 end
