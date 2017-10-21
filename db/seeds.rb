@@ -14,7 +14,7 @@ User.create!(first_name:            "Example",
              password:              "foobar",
              password_confirmation: "foobar",
              role:                  "customer",
-             created_at: Time.zone.now,
+             #created_at: Time.zone.now,
              activated: true,
              activated_at: Time.zone.now)
 
@@ -35,8 +35,7 @@ User.create!(first_name:            "Example",
               password:               password,
               password_confirmation:  password,
               role:                   role,
-              created_at: Time.zone.now,
+              #created_at: Time.zone.now,
               activated: true,
               activated_at: Time.zone.now)
-            end
 end

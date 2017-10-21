@@ -15,7 +15,7 @@ michael:
     password_confirmation: password
     password_digest:       <%= User.digest('password') %>
     role:                  customer
-    created_at:            Time.zone.now
+    #created_at:            Time.zone.now
     activated:             true
     activated_at:          <%= Time.zone.now %>
 
@@ -34,7 +34,7 @@ Phil:
      password_confirmation: password
      password_digest:       <%= User.digest('password') %>
      role:                  customer
-     created_at:            Time.zone.now
+    # created_at:            Time.zone.now
      activated:             true
      activated_at:          <%= Time.zone.now %>
 
@@ -53,7 +53,7 @@ Niche:
     password_confirmation: password
     password_digest:       <%= User.digest('password') %>
     role:                  customer
-    created_at:            Time.zone.now
+    #created_at:            Time.zone.now
     activated:             true
     activated_at:          <%= Time.zone.now %>
 
@@ -74,7 +74,7 @@ Niche:
     password_confirmation: password
     password_digest:       <%= User.digest('password') %>
     role:                  customer
-    created_at:            <%= Time.zone.now %>
+    #created_at:            <%= Time.zone.now %>
     activated:             true
     activated_at:          <%= Time.zone.now %>
 
