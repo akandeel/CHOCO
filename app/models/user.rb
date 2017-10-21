@@ -158,6 +158,7 @@ has_secure_password
   #method itself is only used internally
   #by the User model, there’s no need to
   #expose it to outside users
+  #will be used in before_create callback.
    def create_activation_digest
     # Creates and assigns the activation token and digest.
     self.activation_token  = User.new_token

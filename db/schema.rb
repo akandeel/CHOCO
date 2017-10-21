@@ -27,24 +27,6 @@ ActiveRecord::Schema.define(version: 20170926235044) do
     t.string   "password_confirmation"
   end
 
-  create_table "consumers", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "gender"
-    t.string   "date_of_birth"
-    t.string   "country"
-    t.string   "street_number"
-    t.string   "street_name"
-    t.string   "state"
-    t.string   "suit"
-    t.string   "mailing_address"
-    t.string   "password"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "email"
-    t.string   "password_confirmation"
-  end
-
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

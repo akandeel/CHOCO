@@ -1,20 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-<<<<<<< HEAD
 michael:
-  first_name: "michael"
-  last_name: "example"
-  gender: "male"
-  date_of_birth: "test_date"
-  country: "Canada"
-  street_number: "41"
-  street_name: "Hollywood Blvd."
-  state: "Mystring"
-  suit: "20"
-  mailing_address: "MyString"
-  email_address: "m.example@example.com"
-  password_digest: <%= User.digest('password') %>
-
+    first_name:            Michael
+    last_name:             Lastname
+    gender:                male
+    date_of_birth:         test_date
+    street_name:           test St.
+    street_number:         1
+    state:                 Test State
+    suit_number:           4
+    mailing_address:       test St.
+    email_address:         Michael@test-email.ca
+    password:              password
+    password_confirmation: password
+    password_digest:       <%= User.digest('password') %>
+    role:                  customer
+    created_at:            Time.zone.now
+    activated:             true
+    activated_at:          <%= Time.zone.now %>
 
 Phil:
      first_name:            Phil
