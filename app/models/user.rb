@@ -148,8 +148,6 @@ has_secure_password
     end
   end
 
-<<<<<<< HEAD
-=======
   private
 
   # Converts email to all lower-case.
@@ -166,6 +164,5 @@ has_secure_password
     self.activation_digest = User.digest(activation_token)
 
   end
->>>>>>> account_activation
 
 end
