@@ -20,10 +20,11 @@ User.create!(first_name:            "Example",
 
 
 99.times do | n |
-  name  = Faker::Name.name
-  email = "example-#{n+1}@fakeemail.com"
+  first_name  = Faker::Name.unique.first_name
+  last_name  = Faker::Name.unique.last_name
+  email_address = "example-#{n+1}@fakeemail.com"
   password = "password"
-  User.create!(first_name:            name,
+  User.create!(first_name:            firstname,
               last_name:              lastname,
               gender:                 gender,
               date_of_birth:          birthday,
@@ -31,11 +32,11 @@ User.create!(first_name:            "Example",
               state:                  state,
               suit_number:            suitnumber,
               mailing_address:        mailingaddress
-              email_address:          email,
+              email_address: email,
               password:               password,
               password_confirmation:  password,
               role:                   role,
               #created_at: Time.zone.now,
               activated: true,
-              activated_at: Time.zone.now)
+              activated_at: Time.zone.now
 end

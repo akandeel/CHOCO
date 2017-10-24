@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.11'
 
 gem 'rails-controller-testing'
 
+gem 'faker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
