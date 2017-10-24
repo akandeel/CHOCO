@@ -12,7 +12,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                               street_number: "Wrong",
                                               street_name: "ErrorStreet",
                                               state: "America",
-                                              suit: "TestSuit",
+                                              suit_number: "TestSuit",
                                               mailing_address: "NotRight",
                                               email_address: "user@example.com",
                                               password:              "password",

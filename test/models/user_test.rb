@@ -11,7 +11,7 @@ class UserTest < ActiveSupport::TestCase
                              street_number: "41",
                              street_name: "Hollywood Blvd.",
                              state: "Mystring",
-                             suit: "20",
+                             suit_number: "20",
                              mailing_address: "MyString",
                              email_address: "m.example@example.com",
                              password: "password",
