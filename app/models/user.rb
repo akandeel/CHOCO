@@ -28,7 +28,7 @@ class User < ApplicationRecord
                         :street_number,
                         :street_name,
                         :state,
-                        :suit,
+                        :suit_number,
                         :mailing_address,
                         :email_address
 
