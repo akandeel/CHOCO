@@ -4,7 +4,7 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :customer
   end
 
    attr_accessor :remember_token, :activation_token # to create an accessible attribute to store cookies without saving to database
@@ -152,7 +152,7 @@ has_secure_password
 
   # Converts email to all lower-case.
     def downcase_email
-      self.email = email.downcase
+      self.email_address = email_address.downcase
     end
   #Because the create_activation_digest
   #method itself is only used internally
