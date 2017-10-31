@@ -117,6 +117,13 @@ has_secure_password
 
    end
 
+#ACITVATING AN ACCOUNT
+   def activate
+     update_attribute(:activated, true)
+     update_attribute(:activated_at, Time.zone.now)
+   end
+   
+
  #Note that the remember_token argument in the
  #authenticated? method is not the same
  #as the accessor in the class.attr_accessor :remember_token;
