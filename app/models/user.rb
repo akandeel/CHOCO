@@ -122,7 +122,10 @@ has_secure_password
      update_attribute(:activated, true)
      update_attribute(:activated_at, Time.zone.now)
    end
-   
+
+   def send_activation_email
+     User.Mailer.account_activation(self).deliver_now
+   end
 
  #Note that the remember_token argument in the
  #authenticated? method is not the same

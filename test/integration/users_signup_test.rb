@@ -11,7 +11,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                               country: "Tokyo",
                                               street_number: "Wrong",
                                               street_name: "ErrorStreet",
-                                              state: "America",
                                               suit_number: "TestSuit",
                                               mailing_address: "NotRight",
                                               email_address: "user@example.com",
