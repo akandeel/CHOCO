@@ -56,7 +56,8 @@ def user_params
                                    :state,
                                    :suit_number,
                                    :mailing_address,
-                                   :email_address
+                                   :email_address,
+                                   :role
                                    )
   end
 end
