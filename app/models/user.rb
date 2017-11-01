@@ -104,13 +104,13 @@ has_secure_password
 
    #USING BCRYPT CODE
    # Returns true if the given token matches the digest.
-   def authenticated?(remember_token)
-     digest = self.send("remember_digest")
-     return false if remember_digest.nil?
+   def authenticated?(attribute, token)
+     digest = self.send("#{attribute}_digest")
+     return false if digest.nil?
     #if remember_digest.nil? # using nil and returning false fixes error in test.
      #false
     #else
-     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+     BCrypt::Password.new(digest).is_password?(token)
     #end
      # return false if remember_digest.nil? is required to set th digest
      # to nil because BCrypt::Password.new(nil) raises an error, the test
