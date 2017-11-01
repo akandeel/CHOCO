@@ -105,7 +105,7 @@ has_secure_password
    #USING BCRYPT CODE
    # Returns true if the given token matches the digest.
    def authenticated?(attribute, token)
-     digest = self.send("#{attribute}_digest")
+     digest = send("#{attribute}_digest") #removed self.send because its redundant.
      return false if digest.nil?
     #if remember_digest.nil? # using nil and returning false fixes error in test.
      #false
