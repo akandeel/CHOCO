@@ -41,7 +41,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   #this is easier to test in model rather than integration. which is why its here.
-  test "authenticated? method. It should return false for a user with nil digest" do
-    assert_not @user.authenticated?('')
+  test "authenticated? It should return false for a user with nil digest" do
+    assert_not @user.authenticated?(:remember, '')
   end
 end
