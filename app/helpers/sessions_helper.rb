@@ -62,7 +62,7 @@ module SessionsHelper
     elsif (user_id = cookies.signed[:user_id])
       #raise # raise an exception in the suspected untested block of code: if the code isn’t covered, the tests will still pass; if it is covered, the resulting error will identify the relevant test
       user = User.find_by(id: user_id)
-        if user && user.authenticated?(cookies[:remember_token])
+        if user && user.authenticated?(:remember, cookies[:remember_token])
           log_in user
           @current_user = user
         end
