@@ -17,8 +17,10 @@ class SessionsController < ApplicationController
         remember user #helper method used to call user.remember generating a rmemeber token and saving its digest to database.
         redirect_to user notice: "logged in"
       else
+        message = "Account not activated."
+        message += "Check your email for the activation link."
         flash.now[:alert] = "Email or password is invalid"
-        render '/users/new'
+        render '/users/new'  
       end
   end
 
