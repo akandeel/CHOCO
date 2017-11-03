@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class AcocuntActivationMailerTest < ActionMailer::TestCase
+class AccountActivationMailerTest < ActionMailer::TestCase
   test "password_reset" do
-    mail = AcocuntActivationMailer.password_reset
+    mail = AccountActivationMailer.password_reset
     assert_equal "Password reset", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
