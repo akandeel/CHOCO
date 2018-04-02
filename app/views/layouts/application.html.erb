@@ -2,10 +2,15 @@
 <html>
   <head>
     <title>CHOCO APPLICATION PIPELINE</title>
+
+  </head>
+
+  <body>
+
     <!-- sign the page for security -->
     <%= csrf_meta_tags %>
 
-        <!-- application stylesheet -->
+    <!-- application stylesheet -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 
@@ -14,15 +19,11 @@
     <!-- this is an opptional way to specify the the javascript> -->
     <#script src="application.js" type="text/javascript"></script>
 
-  </head>
-
-  <body>
 
      <div class="container">
        <%= yield %>
 
        <%= debug(params) if Rails.env.development? %>
-
      </div>
   </body>
 
