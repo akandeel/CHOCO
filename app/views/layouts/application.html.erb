@@ -6,7 +6,8 @@
 
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="application.js"></script>
+    <#%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tag %>
   </head>
 
@@ -14,7 +15,7 @@
 
      <div class="container">
        <%= yield %>
-      
+
        <%= debug(params) if Rails.env.development? %>
 
      </div>
