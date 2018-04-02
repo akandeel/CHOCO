@@ -17,6 +17,3 @@
 
 
 // to reconfigure all our js files to expect JSON using ajax.
-$.ajaxSetup({
-      datastype: 'json'
-});
